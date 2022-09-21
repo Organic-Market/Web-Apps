@@ -1,0 +1,7 @@
+.main-menu{    
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background-color: transparent;
+    position: relative;
+  }
