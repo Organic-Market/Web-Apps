@@ -33,18 +33,29 @@
       </div>
       <div class="part-form">
         <mat-form-field appearance="fill">
-          <mat-label>Contraseña</mat-label>
-          <input matInput formControlName="password"/>
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide?'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
         </mat-form-field>
+        <mat-form-field appearance="fill">
+           <mat-label>Confirm Password</mat-label>
+           <input matInput [type]="hide ? 'password' : 'text'">
+           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+             <mat-icon>{{hide?'visibility_off' : 'visibility'}}</mat-icon>
+           </button>
+         </mat-form-field>
+         <section class="example-section">
+          <mat-checkbox class="example-margin">Términos y Condiciones</mat-checkbox>
+        </section>
       </div>
-
       <button
         mat-button
         mat-raised-button
         color="primary"
         [disabled]="myForm.invalid"
-        (click)="saveUser()"
-      >
+        (click)="saveUser()">
         Registrarse
       </button>
     </form>
