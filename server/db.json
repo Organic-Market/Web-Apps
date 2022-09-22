@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "names": "Jhayro Jhordan",
+      "lastnames": "Roncal Tacilla",
+      "email": "jhayro2017@gmail.com",
+      "rol": "mayorista",
+      "password": "jhayro159"
+    },
+    {
+      "id": 2,
+      "names": "weqweqw",
+      "lastnames": "eqwe",
+      "email": "ewqewq@gmail.com",
+      "rol": "Mayorista",
+      "password": "wqewqewqe"
+    }
+  ]
+}

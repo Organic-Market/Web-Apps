@@ -1,42 +1,52 @@
 <div class="contenedor">
-    <div class="formulario">
-        <img src="/assets/img/logo.png" alt="" />
-        <h2>Bienvenido</h2>
-        <p>No tienes una cuenta? <a routerLink="/register">Crea una ahora!</a></p>
+  <div class="formulario">
+    <img src="/assets/img/logo.png" alt="" />
+    <h2>Bienvenido</h2>
+    <p>No tienes una cuenta? <a routerLink="/register">Ingresa ahora!</a></p>
 
-        <form class="formulario-inputs">
-            <div class="part-form">
-                <mat-form-field appearance="fill">
-                    <mat-label>Email</mat-label>
-                    <input matInput />
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>Email</mat-label>
-                    <input matInput />
-                </mat-form-field>
-            </div>
-            <div class="part-form">
-                <mat-form-field appearance="fill">
-                    <mat-label>Email</mat-label>
-                    <input matInput />
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>Email</mat-label>
-                    <input matInput />
-                </mat-form-field>
-            </div>
-            <div class="part-form">
-                <mat-form-field appearance="fill">
-                    <mat-label>Email</mat-label>
-                    <input matInput />
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>Email</mat-label>
-                    <input matInput />
-                </mat-form-field>
-            </div>
+    <form [formGroup]="myForm" class="formulario-inputs" autocomplete="off">
+      <div class="part-form">
+        <mat-form-field appearance="fill">
+          <mat-label>Nombres</mat-label>
+          <input matInput formControlName="names" />
+        </mat-form-field>
+       
+        <mat-form-field appearance="fill">
+          <mat-label>Apellidos</mat-label>
+          <input matInput formControlName="lastnames" />
+        </mat-form-field>
+      
+      </div>
+      <div class="part-form">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+       
+        <mat-form-field appearance="fill" >
+          <mat-select formControlName="rol">
+            <mat-option value="Agricultor" >Agricultor</mat-option>
+            <mat-option value="Mayorista" >Mayorista</mat-option>
+          </mat-select>
+        </mat-form-field>
+       
+      </div>
+      <div class="part-form">
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input matInput formControlName="password"/>
+        </mat-form-field>
+      </div>
 
-            <button mat-button mat-raised-button color="primary">Registrarse</button>
-        </form>
-    </div>
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        [disabled]="myForm.invalid"
+        (click)="saveUser()"
+      >
+        Registrarse
+      </button>
+    </form>
+  </div>
 </div>
