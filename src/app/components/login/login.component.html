@@ -4,15 +4,15 @@
         <h2>Bienvenido</h2>
         <p>No tienes una cuenta? <a routerLink="/register">Crea una ahora!</a></p>
         
-        <form class="formulario-inputs">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="formulario-inputs">
             <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
-                <input matInput>
+                <input formControlName="email" matInput>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'">
+                <input  formControlName="password" matInput [type]="hide ? 'password' : 'text'">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide?'visibility_off' : 'visibility'}}</mat-icon>
                 </button>

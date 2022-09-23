@@ -15,6 +15,14 @@
       "email": "ewqewq@gmail.com",
       "rol": "Mayorista",
       "password": "wqewqewqe"
+    },
+    {
+      "id": 3,
+      "names": "Irwin",
+      "lastnames": "Roncal",
+      "email": "irwin159@gmail.com",
+      "rol": "Mayorista",
+      "password": "Irwin159"
     }
   ]
 }
