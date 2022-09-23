@@ -23,6 +23,14 @@
       "email": "irwin159@gmail.com",
       "rol": "Mayorista",
       "password": "Irwin159"
+    },
+    {
+      "id": 4,
+      "names": "Pedro",
+      "lastnames": "Tacilla",
+      "email": "pedro159@gmail.com",
+      "rol": "Agricultor",
+      "password": "pedro159"
     }
   ]
 }
