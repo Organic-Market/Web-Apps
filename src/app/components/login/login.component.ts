@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         });
       }
     },err=>{
-      this.snackBar.open('Algo salio Mal', '', {
+      this.snackBar.open('Ingresa tus credenciales', '', {
         duration: 3000,
       });
     })

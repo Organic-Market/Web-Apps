@@ -1,0 +1,116 @@
+.sidenav{
+    background: #ffffff;
+    transition: all .5s ease;
+    position: fixed;
+    z-index: 1;
+    width: 5rem;
+    height: 80vh;
+    border-radius: 0px;
+    background: #ffffff;
+    box-shadow:  5px 5px 14px #f7f7f7,
+             -5px -5px 14px #ffffff;
+    padding-top: 30px;
+}
+
+.sidenav-nav{
+    list-style: none;
+    padding: 0.9rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100% - 3.65rem);
+    cursor: pointer;
+}
+
+.sidenav-nav-item{
+    width: 100%;
+    margin-bottom: 0.6rem;
+}
+
+.sidenav-nav-link{
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    color: #000;
+    text-decoration: none;
+    border-radius: 0.60rem;
+    transition: color 0.3s ease;
+    justify-content: space-around;
+}
+
+.sidenav-nav-icon{
+    font-size: 25px;
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 0.5rem;
+    text-align: center;
+    
+}
+
+.sidenav-link-text{
+    margin-left: 1.5rem;
+}
+
+
+.sidenav-nav-link:hover{
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow:  5px 5px 20px #f0f0f0,
+             -5px -5px 20px #ffffff;
+}
+
+.active{
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow:  5px 5px 20px #f0f0f0,
+             -5px -5px 20px #ffffff;
+}
+
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    padding: 0.9rem 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.logo-container .logo{
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    width: 3rem;
+    min-width: 3rem;
+    border-radius: 0.313rem;
+    padding: 0.3rem;
+    font-size: 24px;
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+    color: #ffffff;
+}
+
+.logo-container .logo-text{
+    margin-left: 1.5rem;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+
+.logo-container .btn-close{
+    margin-left: auto;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+}
+
+.sidenav-collapsed {
+    width: 15rem;
+}
+
+.sidenav-collapsed .sidenav-nav-link{
+    justify-content: flex-start;
+}

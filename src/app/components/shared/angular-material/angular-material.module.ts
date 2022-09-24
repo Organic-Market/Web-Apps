@@ -10,7 +10,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule} from '@angular/material/checkbox';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';
+
 
 
 
@@ -29,10 +34,16 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSelectModule,
     MatSnackBarModule,
     MatCheckboxModule,
+    MatCardModule,
+    MatGridListModule,
+    MatMenuModule,
+    LayoutModule,
+
   ],
   exports:[
     MatButtonModule,
     MatToolbarModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -41,8 +52,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSelectModule,
     MatSnackBarModule,
     MatCheckboxModule,
-
-
+    MatCardModule,
+    MatGridListModule,
+    MatMenuModule,
+    LayoutModule,
   ]
   
 
