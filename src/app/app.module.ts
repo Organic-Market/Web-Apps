@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
+import { ListProductComponent } from './components/list-product/list-product.component';
+import { MessageConfirmationComponent } from './shared/message-confirmation/message-confirmation.component';
 
 
 
@@ -23,6 +26,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
+    AddEditProductComponent,
+    ListProductComponent,
+    MessageConfirmationComponent,
   ],
   imports: [
     BrowserModule,
