@@ -15,7 +15,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { ListProductComponent } from './components/list-product/list-product.component';
 import { MessageConfirmationComponent } from './shared/message-confirmation/message-confirmation.component';
-
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 
 @NgModule({
@@ -29,6 +29,7 @@ import { MessageConfirmationComponent } from './shared/message-confirmation/mess
     AddEditProductComponent,
     ListProductComponent,
     MessageConfirmationComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,6 @@ import { MessageConfirmationComponent } from './shared/message-confirmation/mess
     AngularMaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-
 
   ],
   providers: [],
