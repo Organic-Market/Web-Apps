@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CartComponent } from './components/cart/cart.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { PlanesComponent } from './components/planes/planes.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     RegisterComponent,
     DashboardComponent,
     CartComponent,
+    PlanesComponent,
   ],
   imports: [
     BrowserModule,

@@ -31,6 +31,14 @@
       "email": "pedro159@gmail.com",
       "rol": "Agricultor",
       "password": "pedro159"
+    },
+    {
+      "id": 5,
+      "names": "swsw",
+      "lastnames": "dwdw",
+      "email": "dwd@gmail.com",
+      "rol": "Agricultor",
+      "password": "efefefefe"
     }
   ]
 }
