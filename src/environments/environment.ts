@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   basePath:'http://localhost:3000/users',
+  basePathProduct:'http://localhost:3000/products',
 
 
 };

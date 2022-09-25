@@ -1,4 +1,3 @@
-
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -8,7 +7,7 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ProductService {
-  basePath: string = environment.basePath;
+  basePath: string = environment.basePathProduct;
 
   constructor(private http: HttpClient) { }
   
@@ -30,10 +29,6 @@ export class ProductService {
 
   deleteProduct(id: any) {
     return this.http.delete<Product>(`${this.basePath}/${id}`);
-  }
-
-  deleteProduct(id: any) {
-    return this.http.delete<Product>(`${'http://localhost:3000/products'}/${id}`);
   }
 
 }
