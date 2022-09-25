@@ -1,4 +1,3 @@
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AngularMaterialModule } from './components/shared/angular-material/angular-material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +16,6 @@ import { CartComponent } from './components/cart/cart.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { ListProductComponent } from './components/list-product/list-product.component';
-import { MessageConfirmationComponent } from './shared/message-confirmation/message-confirmation.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { BodyComponent } from './components/body/body.component';
@@ -36,7 +34,6 @@ import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.compon
     CartComponent,
     AddEditProductComponent,
     ListProductComponent,
-    MessageConfirmationComponent,
     EditProductComponent,
     SidenavComponent,
     BodyComponent,
