@@ -10,6 +10,8 @@ export class UserService {
 
   basePath:string=environment.basePath;
 
+  idActualUser!: number;
+
   constructor(private http: HttpClient) { }
 
   getUser(){
@@ -20,10 +22,23 @@ export class UserService {
     return this.http.get<User>(`${this.basePath}/${id}`)
   }
 
+
+
+  getIdActaulUser():number{
+    return this.idActualUser
+  }
+  setActualIde(id:any):void{
+    this.idActualUser=id;
+  }
   addUser(user: User) {
     return this.http.post<User>(
       this.basePath,
       user
     );
   }
+
+  updateUser(id: any, user: User) {
+    return this.http.put<User>(`${this.basePath}/${id}`, user);
+  }
+
 }

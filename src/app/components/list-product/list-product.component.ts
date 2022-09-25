@@ -31,12 +31,18 @@ export class ListProductComponent implements OnInit {
   }
 
   getProducts() {
-    this.productService.getProducts().subscribe((data: Product[]) => {
+    this.productService.getProduct().subscribe((data: Product[]) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
   }
 
-  deleteProduct(index: number) {}
+  deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter((e: Product) => {
+        return e.id !== id ? e : false;
+      });
+    });
+  }
 
 }

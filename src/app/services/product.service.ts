@@ -32,4 +32,8 @@ export class ProductService {
     return this.http.delete<Product>(`${this.basePath}/${id}`);
   }
 
+  deleteProduct(id: any) {
+    return this.http.delete<Product>(`${'http://localhost:3000/products'}/${id}`);
+  }
+
 }
