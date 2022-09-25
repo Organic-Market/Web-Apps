@@ -22,6 +22,7 @@ import { BodyComponent } from './components/body/body.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ShopComponent } from './components/shop/shop.component';
 
 
 
@@ -42,6 +43,7 @@ import { FooterComponent } from './components/footer/footer.component';
     PanelComponent,
     EditPerfilComponent,
     FooterComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,
