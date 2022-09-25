@@ -1,3 +1,4 @@
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AngularMaterialModule } from './components/shared/angular-material/angular-material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +15,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CartComponent } from './components/cart/cart.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
+import { ListProductComponent } from './components/list-product/list-product.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { BodyComponent } from './components/body/body.component';
+import { PanelComponent } from './components/panel/panel.component';
+import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
 
 
 @NgModule({
@@ -25,6 +32,12 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     RegisterComponent,
     DashboardComponent,
     CartComponent,
+    AddEditProductComponent,
+    ListProductComponent,
+    SidenavComponent,
+    BodyComponent,
+    PanelComponent,
+    EditPerfilComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +49,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatSidenavModule,
 
 
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

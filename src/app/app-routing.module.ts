@@ -1,4 +1,9 @@
-import { CartComponent } from './components/cart/cart.component';
+import { ListProductComponent } from './components/list-product/list-product.component';
+import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
+import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
+
+import { PanelComponent } from './components/panel/panel.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
@@ -14,6 +19,17 @@ const routes: Routes = [
 
   
 
+  { path: 'add', component: AddEditProductComponent },
+  { path: 'edit/:id', component: AddEditProductComponent },
+  { path: 'sidenav', component:  SidenavComponent},
+  { path: 'panel', component:  PanelComponent,
+    children:[
+      { path: '', redirectTo:'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component:  DashboardComponent},
+      { path: 'productos', component:  ListProductComponent},
+      { path: 'perfil', component:  EditPerfilComponent},
+    ]
+  },
 ];
 
 @NgModule({
