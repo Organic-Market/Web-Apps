@@ -12,7 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
+import { CartComponent } from './components/cart/cart.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AngularMaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatSidenavModule,
 
 
   ],
