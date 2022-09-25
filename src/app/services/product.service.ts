@@ -1,4 +1,5 @@
 
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/product';
@@ -7,17 +8,28 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ProductService {
+  basePath: string = environment.basePath;
 
   constructor(private http: HttpClient) { }
   
-  getProduct(){
-    return this.http.get<Product[]>('http://localhost:3000/products');
+  getProduct() {
+    return this.http.get<Product[]>(this.basePath);
   }
-  addProduct(product:Product){
-    return this.http.post<Product>(
-      'http://localhost:3000/products',
-      product
-    );
+
+  getProductId(id: any) {
+    return this.http.get<Product>(`${this.basePath}/${id}`);
+  }
+
+  addProduct(product: Product) {
+    return this.http.post<Product>(this.basePath, product);
+  }
+
+  updateProduct(id: any, product: Product) {
+    return this.http.put<Product>(`${this.basePath}/${id}`, product);
+  }
+
+  deleteProduct(id: any) {
+    return this.http.delete<Product>(`${this.basePath}/${id}`);
   }
 
   deleteProduct(id: any) {
