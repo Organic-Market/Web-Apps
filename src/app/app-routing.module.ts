@@ -15,6 +15,10 @@ const routes: Routes = [
   { path: 'home', component:  HomeComponent },
   { path: 'login', component:  LoginComponent },
   { path: 'register', component:  RegisterComponent },
+  { path: 'cart', component:  CartComponent },
+
+  
+
   { path: 'add', component: AddEditProductComponent },
   { path: 'edit/:id', component: AddEditProductComponent },
   { path: 'sidenav', component:  SidenavComponent},
