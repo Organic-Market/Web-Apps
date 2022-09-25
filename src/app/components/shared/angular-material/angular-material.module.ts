@@ -15,6 +15,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -38,6 +40,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatGridListModule,
     MatMenuModule,
     LayoutModule,
+    MatTableModule,
+    MatPaginatorModule,
+
 
   ],
   exports:[
@@ -56,6 +61,10 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatGridListModule,
     MatMenuModule,
     LayoutModule,
+    MatTableModule,
+    MatPaginatorModule,
+
+
   ]
   
 

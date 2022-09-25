@@ -24,5 +24,10 @@ export const navbarData=[
         routeLink:'comentarios',
         icon:'mail',
         label:'Mensajes'
+    },
+    {
+        routeLink:'/login',
+        icon:'logout',
+        label:'Salir'
     }
 ]

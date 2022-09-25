@@ -5,7 +5,7 @@
       "names": "Jhayro Jhordan",
       "lastnames": "Roncal Tacilla",
       "email": "jhayro2017@gmail.com",
-      "rol": "mayorista",
+      "rol": "Mayorista",
       "password": "jhayro159"
     },
     {
@@ -35,19 +35,19 @@
   ],
   "products": [
     {
-      "id": 1,
-      "names": "papa",
-      "quantity": "20"
+      "id": 4,
+      "name": "choclo",
+      "quantity": "150"
     },
     {
-      "id": 2,
-      "names": "cebolla",
+      "id": 5,
+      "name": "papa2",
+      "quantity": "30"
+    },
+    {
+      "id": 6,
+      "name": "Papa",
       "quantity": "50"
-    },
-    {
-      "id": 1,
-      "names": "ajos",
-      "quantity": "60"
     }
   ]
 }

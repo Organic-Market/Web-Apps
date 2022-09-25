@@ -20,4 +20,8 @@ export class ProductService {
     );
   }
 
+  deleteProduct(id: any) {
+    return this.http.delete<Product>(`${'http://localhost:3000/products'}/${id}`);
+  }
+
 }

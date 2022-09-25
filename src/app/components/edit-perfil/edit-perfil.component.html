@@ -1,0 +1,123 @@
+<div class="container">
+    <h1>Perfil</h1>
+    <div class="container-perfil">
+        <div class="header-perfil">
+            <img src="/assets/img/perfil6.png" alt="">
+            <h1>{{user.names}}</h1>
+            <h3>{{user.rol}}</h3>
+        </div>
+    
+        <div class="body-perfil">
+            <form [formGroup]="myForm" *ngIf="myForm" autocomplete="off">
+                <div class="col-lg-12">
+                  <mat-form-field class="example-container">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="names" />
+                  </mat-form-field>
+                  <div
+                    *ngIf="
+                      myForm.get('names')?.hasError('required') &&
+                      myForm.get('names')?.touched
+                    "
+                    style="margin-top: -20px"
+                  >
+                    <span class="mda-form-msg"> Este campo es obligatorio </span>
+                  </div>
+                  <div
+                    *ngIf="myForm.get('names')?.hasError('maxlength')"
+                    style="margin-top: -20px"
+                  >
+                    <span class="mda-form-msg">
+                      Este campo debe tener como máximo 60 caracteres
+                    </span>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                <mat-form-field class="example-container">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput formControlName="lastnames" />
+                  </mat-form-field>
+                  <div
+                    *ngIf="
+                      myForm.get('lastnames')?.hasError('required') &&
+                      myForm.get('lastnames')?.touched
+                    "
+                    style="margin-top: -20px"
+                  >
+                    <span class="mda-form-msg"> Este campo es obligatorio </span>
+                  </div>
+                  <div
+                    *ngIf="myForm.get('lastnames')?.hasError('maxlength')"
+                    style="margin-top: -20px"
+                  >
+                    <span class="mda-form-msg">
+                      Este campo debe tener como máximo 60 caracteres
+                    </span>
+                  </div>
+                </div>
+          
+                <div class="col-lg-12">
+                  <mat-form-field class="example-container">
+                    <mat-label>Correo</mat-label>
+                    <input matInput formControlName="email" />
+                  </mat-form-field>
+                  <div
+                    *ngIf="
+                      myForm.get('email')?.hasError('required') &&
+                      myForm.get('email')?.touched
+                    "
+                    style="margin-top: -20px"
+                  >
+                    <span class="mda-form-msg"> Este campo es obligatorio </span>
+                  </div>
+                  <div
+                    *ngIf="myForm.get('email')?.hasError('email')"
+                    style="margin-top: -20px"
+                  >
+                    <span class="mda-form-msg">
+                      Este campo no tiene formato de correo
+                    </span>
+                  </div>
+                </div>
+
+
+                <mat-form-field appearance="fill" >
+                    <mat-select formControlName="rol">
+                      <mat-option value="Agricultor" >Agricultor</mat-option>
+                      <mat-option value="Mayorista" >Mayorista</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+
+                <div class="col-lg-12">
+                  <mat-form-field class="example-container">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput type="password" formControlName="password" />
+                  </mat-form-field>
+                  <div
+                    *ngIf="
+                      myForm.get('password')?.hasError('required') &&
+                      myForm.get('password')?.touched
+                    "
+                    style="margin-top: -20px"
+                  >
+                    <span class="mda-form-msg"> Este campo es obligatorio </span>
+                  </div>
+                </div>
+          
+                <div class="col-lg-12">
+                  <button mat-raised-button
+                    class="btn btn-success btn-lg float-right"
+                    [disabled]="myForm.invalid"
+                    type="button"
+                    style="margin-left: 10 px"
+                    (click)="updateUser()"
+                  >
+                    Editar Perfil
+                  </button>
+                </div>
+              </form>
+        </div>
+    </div>
+   
+</div>

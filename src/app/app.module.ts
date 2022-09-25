@@ -12,17 +12,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-<<<<<<< Updated upstream
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { ListProductComponent } from './components/list-product/list-product.component';
-import { MessageConfirmationComponent } from './shared/message-confirmation/message-confirmation.component';
-
-=======
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { BodyComponent } from './components/body/body.component';
 import { PanelComponent } from './components/panel/panel.component';
->>>>>>> Stashed changes
+import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
 
 
 @NgModule({
@@ -33,15 +28,12 @@ import { PanelComponent } from './components/panel/panel.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-<<<<<<< Updated upstream
     AddEditProductComponent,
     ListProductComponent,
-    MessageConfirmationComponent,
-=======
     SidenavComponent,
     BodyComponent,
     PanelComponent,
->>>>>>> Stashed changes
+    EditPerfilComponent,
   ],
   imports: [
     BrowserModule,

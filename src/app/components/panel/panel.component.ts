@@ -1,6 +1,4 @@
-import { DashboardComponent } from './../dashboard/dashboard.component';
 import { Component, OnInit } from '@angular/core';
-import { Routes } from '@angular/router';
 
 interface SideNavToggle{
   screenWidth:number;
