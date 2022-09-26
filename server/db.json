@@ -31,6 +31,14 @@
       "email": "pedro159@gmail.com",
       "rol": "Agricultor",
       "password": "pedro159"
+    },
+    {
+      "id": 5,
+      "names": "Antony",
+      "lastnames": "Ortega",
+      "email": "xtreme@gmail.com",
+      "rol": "Mayorista",
+      "password": "123456789"
     }
   ],
   "products": [
