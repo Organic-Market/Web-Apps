@@ -43,19 +43,75 @@
   ],
   "products": [
     {
-      "id": 4,
-      "name": "choclo",
-      "quantity": "150"
+      "id": 7,
+      "name": "Papa",
+      "img": "nueva",
+      "price": "300",
+      "category": "Tubérculos ",
+      "quantity": "500"
     },
     {
+      "id": 8,
+      "name": "Choclo",
+      "img": "neuva",
+      "price": "700",
+      "category": "maiz",
+      "quantity": "700"
+    },
+    {
+      "id": 9,
+      "name": "Cebolla",
+      "img": "nueva",
+      "price": "300",
+      "category": "cebolla",
+      "quantity": "600"
+    }
+  ],
+  "productsincar": [
+    {
+      "id": 4,
+      "name": "Choclo",
+      "img": "nueva",
+      "price": "200",
+      "category": "Choclo",
+      "quantity": "500"
+    },
+    {
+      "id": 9,
+      "name": "Cebolla",
+      "img": "nueva",
+      "price": "300",
+      "category": "cebolla",
+      "quantity": "600"
+    }
+  ],
+  "ventas": [
+    {
       "id": 5,
-      "name": "papa2",
-      "quantity": "30"
+      "name": "jhayro",
+      "lastname": "roncal",
+      "product": "Choclo",
+      "total": "200",
+      "email": "jhayro2017@gamil.com",
+      "quantity": "500"
     },
     {
       "id": 6,
-      "name": "Papa",
-      "quantity": "50"
+      "name": "pedro",
+      "lastname": "roncal",
+      "product": "Choclo",
+      "total": "200",
+      "email": "pedro10@gmail.com",
+      "quantity": "500"
+    },
+    {
+      "id": 7,
+      "name": "",
+      "lastname": "",
+      "product": "Choclo",
+      "total": "200",
+      "email": "",
+      "quantity": "500"
     }
   ]
 }

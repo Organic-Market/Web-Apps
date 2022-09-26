@@ -9,6 +9,11 @@ import { Product } from '../models/product';
 })
 export class ProductService {
   basePath: string = environment.basePathProduc;
+  basePath: string = environment.basePathProducts;
+  basePathInCar: string = environment.basePathProductInCar;
+
+
+  idActualProduct!: number;
 
   constructor(private http: HttpClient) { }
   
@@ -16,10 +21,21 @@ export class ProductService {
     return this.http.get<Product[]>(this.basePath);
   }
 
+  getProductInCar() {
+    return this.http.get<Product[]>(this.basePathInCar);
+  }
+
   getProductId(id: any) {
     return this.http.get<Product>(`${this.basePath}/${id}`);
   }
 
+  setActualProductId(id:any):void{
+    this.idActualProduct=id;
+  }
+
+  getActualProductId(){
+    return this.idActualProduct
+  }
   addProduct(product: Product) {
     return this.http.post<Product>(this.basePath, product);
   }
@@ -31,5 +47,18 @@ export class ProductService {
   deleteProduct(id: any) {
     return this.http.delete<Product>(`${this.basePath}/${id}`);
   }
+
+  addProductInCar(productInCar: Product) {
+    return this.http.post<Product>(this.basePathInCar, productInCar);
+  }
+
+  updateProductInCar(id: any, product: Product) {
+    return this.http.put<Product>(`${this.basePathInCar}/${id}`, product);
+  }
+
+  deleteProductInCar(id: any) {
+    return this.http.delete<Product>(`${this.basePathInCar}/${id}`);
+  }
+
 
 }

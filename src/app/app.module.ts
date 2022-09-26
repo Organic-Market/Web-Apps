@@ -1,4 +1,3 @@
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AngularMaterialModule } from './components/shared/angular-material/angular-material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,13 +15,19 @@ import { CartComponent } from './components/cart/cart.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
 import { ListProductComponent } from './components/list-product/list-product.component';
-
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { BodyComponent } from './components/body/body.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
 import { CongratulationsComponent } from './components/congratulations/congratulations.component';
+
+import { FooterComponent } from './components/footer/footer.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ListSellsComponent } from './components/list-sells/list-sells.component';
+
+
 
 
 @NgModule({
@@ -42,6 +47,12 @@ import { CongratulationsComponent } from './components/congratulations/congratul
     PanelComponent,
     EditPerfilComponent,
     CongratulationsComponent,
+
+    FooterComponent,
+    ShopComponent,
+    CheckoutComponent,
+    ListSellsComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -30,22 +30,29 @@ export class AddEditProductComponent implements OnInit {
       id: [''],
       name: ['', [Validators.required, Validators.maxLength(20)]],
       quantity: ['', [Validators.required]],
-      
+      img: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+      category: ['', [Validators.required]],      
     });
   }
+  
 
   saveProduct(): void {
     const product: Product = {
       id: 0,
       name: this.myForm.get('name')!.value,
+      img: this.myForm.get('img')!.value,
+      price: this.myForm.get('price')!.value,
+      category: this.myForm.get('category')!.value,
       quantity: this.myForm.get('quantity')!.value
+
     };
     this.productService.addProduct(product).subscribe({
       next: (data) => {
         this.snackBar.open('El producto fue registrado con exito!', '', {
           duration: 3000,
         });
-        this.router.navigate(['/']);
+
       },
       error: (err) => {
         console.log(err);
