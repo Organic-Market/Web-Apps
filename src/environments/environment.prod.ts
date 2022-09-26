@@ -5,6 +5,4 @@ export const environment = {
   basePathProductInCar:'http://localhost:3000/productsincar',
   basePathSell:'http://localhost:3000/ventas',
 
-
-
 };

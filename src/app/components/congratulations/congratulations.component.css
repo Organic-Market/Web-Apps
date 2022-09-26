@@ -1,0 +1,13 @@
+.contenedor{
+    text-align: center;
+}
+
+.contenedor img{
+    width: 350px;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}

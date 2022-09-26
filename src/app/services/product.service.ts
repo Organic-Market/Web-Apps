@@ -8,11 +8,8 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ProductService {
-  basePath: string = environment.basePathProduc;
   basePath: string = environment.basePathProducts;
   basePathInCar: string = environment.basePathProductInCar;
-
-
   idActualProduct!: number;
 
   constructor(private http: HttpClient) { }

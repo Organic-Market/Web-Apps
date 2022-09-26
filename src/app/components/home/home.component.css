@@ -1,0 +1,318 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  p{
+    color: #979797;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+
+.titulo-seccion{
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 35px;
+    text-align: center;
+
+}
+.titulo-seccion h2{
+    color: #000000;
+    font-size: 3.125rem;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+.contenedor{
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+.banner-parallax{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+.banner-parallax::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 1000;
+  
+}
+.banner-parallax .sol{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1;
+}
+.banner-parallax .campo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    z-index: 10;
+  
+  
+  }
+.banner-parallax .montañas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+  }
+.banner-parallax .rama{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 11;
+  
+  }
+.banner-parallax .agricultor{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 30px;
+    margin-bottom: 40px;
+    width: 90%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 11;
+  
+  }
+.banner-principal{
+    width: 100%;
+  }
+  
+.banner-principal .banner{
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+.banner-principal .texto-banner{
+    display: inline-block;
+    width: 90%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+  }
+  
+.banner-principal .texto-banner h2{
+    font-weight: 650;
+    font-size: 25px;
+    color:#000000;
+    margin-bottom: 20px;
+    text-shadow: 0 0 2px wheat;
+  
+  }
+  
+.banner-principal .texto-banner h1{
+    font-size: 6.0625rem;
+    font-weight: 800;
+    line-height: 70px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+  }
+  
+.banner-principal .texto-banner .scroll-suave{
+    background-color: #000000;
+    color: white;
+}
+  
+
+
+.beneficios{
+    background: #ffffff;
+    padding: 108px 0 54px 0;
+  }
+  
+.beneficios .video-beneficio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+.beneficios .video-beneficio h3{
+    padding-top: 25px;
+    
+    
+  }
+.beneficios .video-beneficio img{
+    width: 65%;
+    margin-bottom: 30px;
+    border-radius: 0px;
+    background: #ffffff;
+    box-shadow:  19px 19px 38px #dedede,
+               -19px -19px 38px #ffffff;
+  }
+  
+.beneficios-items{
+    padding-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+.bene-item{
+    width: 30%;
+    text-align: center;
+    
+  }
+.beneficios .beneficios-items .bene-item img{
+    width: 90%;
+    margin-bottom: 30px;
+    height: 200px;
+    background: #ffffff;
+    box-shadow:  19px 19px 38px #dedede,
+               -19px -19px 38px #ffffff;
+  }
+.beneficios .beneficios-items .bene-item a{
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    cursor: pointer;
+  }
+
+  
+
+
+  
+.nosotros{
+    background: #ffffff;
+    padding: 108px 0 54px 0;
+  }
+  
+.nosotros-perfiles{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+.perfil{
+    text-align: center;
+    width: 30%;
+    margin-bottom: 50px;
+  }
+.perfil img{
+    margin-bottom: 15px;
+    width: 80%;
+    background: #ffffff;
+    box-shadow:  13px 13px 26px #e3e3e3,
+             -13px -13px 26px #ffffff;
+  }
+.perfil h2{
+    margin-bottom: 15px;
+  }
+.perfil a{
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+  }
+.perfil p{
+   display: none;
+  }
+
+
+  .planes{
+    background: #ffffff;
+    padding-top: 54px;
+    padding-bottom: 108px;
+  
+  }
+  
+.planes-info{
+    display: flex;
+    justify-content: space-around;
+  }
+.planes .plan-completo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+.planes .plan-completo img{
+    height: 525px;
+    object-fit: cover;
+    background: #ffffff;
+    box-shadow:  5px 5px 27px #f2f2f2,
+               -5px -5px 27px #ffffff;
+  }
+.planes .plan{
+    background: #fff;
+    padding: 50px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 9px 32px -1px rgba(0,0,0,0.2);
+    text-align: center;
+    margin-top: -100px;
+    backface-visibility: hidden;
+  }
+  
+.planes .plan h2{
+    padding-bottom: 30px;
+}
+.planes .plan .m-4{
+    text-align: left;
+  }
+.planes .plan .m-4 .checklinea{
+    display: flex;
+    padding-bottom: 20px;
+  }
+.planes .plan .m-4 .checklinea i{
+    padding-right: 8px;
+    font-size: 22px;
+  }
+  
+.planes .plan .m-5 {
+    margin-top: 25px;
+  } 
+  
+.planes .plan .m-5 a{
+    text-decoration: none;
+    font-size: 17px;
+    padding: 15px 20px;
+    color: white;
+    font-weight: 600;
+    background-color: black;
+    transition: all ease-in-out 0.3s;
+  }
+.planes .plan .m-5 a:hover{
+    background-color: #b83342;
+    
+}
