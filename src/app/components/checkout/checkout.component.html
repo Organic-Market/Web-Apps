@@ -1,0 +1,72 @@
+<div class="container">
+    <h1>Pasarela de Pago</h1>
+
+    <div class="conten">
+        <form [formGroup]="myForm" *ngIf="myForm" autocomplete="off">
+            <div class="col-lg-12">
+                <mat-form-field class="example-container">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="names" />
+                </mat-form-field>
+                <div *ngIf="
+                  myForm.get('names')?.hasError('required') &&
+                  myForm.get('names')?.touched
+                " style="margin-top: -20px">
+                    <span class="mda-form-msg"> Este campo es obligatorio </span>
+                </div>
+                <div *ngIf="myForm.get('names')?.hasError('maxlength')" style="margin-top: -20px">
+                    <span class="mda-form-msg">
+                        Este campo debe tener como máximo 60 caracteres
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <mat-form-field class="example-container">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput formControlName="lastnames" />
+                </mat-form-field>
+                <div *ngIf="
+                  myForm.get('lastnames')?.hasError('required') &&
+                  myForm.get('lastnames')?.touched
+                " style="margin-top: -20px">
+                    <span class="mda-form-msg"> Este campo es obligatorio </span>
+                </div>
+                <div *ngIf="myForm.get('lastnames')?.hasError('maxlength')" style="margin-top: -20px">
+                    <span class="mda-form-msg">
+                        Este campo debe tener como máximo 60 caracteres
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <mat-form-field class="example-container">
+                    <mat-label>Correo</mat-label>
+                    <input matInput formControlName="email" />
+                </mat-form-field>
+                <div *ngIf="
+                  myForm.get('email')?.hasError('required') &&
+                  myForm.get('email')?.touched
+                " style="margin-top: -20px">
+                    <span class="mda-form-msg"> Este campo es obligatorio </span>
+                </div>
+                <div *ngIf="myForm.get('email')?.hasError('email')" style="margin-top: -20px">
+                    <span class="mda-form-msg">
+                        Este campo no tiene formato de correo
+                    </span>
+                </div>
+            </div>
+            
+        </form>
+
+        <div class="info-venta">
+            <h2>Total</h2>
+            <div class="detalle" *ngFor="let data of dataSource">
+                <p>{{data.name}}</p>
+                <p>{{data.price}}</p>
+                <p>S/. {{data.quantity}}</p>
+                <button mat-button (click)="saveVenta(data.name,data.price,data.quantity)">Pagar</button>
+            </div>
+            
+        </div>
+    </div>
+</div>

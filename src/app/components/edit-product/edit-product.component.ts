@@ -28,14 +28,14 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.idProduct = this.route.snapshot.paramMap.get('id');
+    this.idProduct = this.productService.getActualProductId();
     this.productService.getProductId(this.idProduct).subscribe((data) => {
       this.product = data;
       this.myForm = this.fb.group({
-        name: [
-          this.product.name,
-          [Validators.required, Validators.maxLength(10)],
-        ],
+        name: [this.product.name,[Validators.required, Validators.maxLength(10)],],
+        img: [this.product.img, [Validators.required]],
+        price: [this.product.price, [Validators.required]],
+        category: [this.product.category, [Validators.required]],    
         quantity: [this.product.quantity, [Validators.required]],
       });
     });
@@ -44,14 +44,16 @@ export class EditProductComponent implements OnInit {
     const product: Product = {
       id: this.idProduct,
       name: this.myForm.get('name')!.value,
-      quantity: this.myForm.get('quantity')!.value,
+      img: this.myForm.get('img')!.value,
+      price: this.myForm.get('price')!.value,
+      category: this.myForm.get('category')!.value,
+      quantity: this.myForm.get('quantity')!.value
     };
     this.productService.updateProduct(this.idProduct, product).subscribe({
       next: (data) => {
         this.snackBar.open('El producto fue actualizado con exito!', '', {
           duration: 3000,
         });
-        this.router.navigate(['/list']);
       },
       error: (err) => {
         console.log(err);

@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <h1>Shop</h1>
+    <div class="buscador">
+        Buscar: <input value="">
+    </div>
+   
+
+    
+    <div class="project">
+        <div class="shop">
+            <div class="box" *ngFor="let data of dataSource">
+                <img src="/assets/img/cart_1.jpg" alt="">
+                <div class="content">
+                    <h3>{{data.name}}</h3>
+                    <h4>Precio: S/{{data.price}}/saco</h4>
+                    <p class="unit">Elegir cantidad en carrito</p>
+                    <p class="unit">{{data.quantity}} sacos disponibles</p>
+                    <button mat-button color="warn" (click)="saveProduct(data.id,data.price,data.name,data.quantity,data.img,data.category)">Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

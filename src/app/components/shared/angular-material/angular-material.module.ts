@@ -17,6 +17,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {matDialogAnimations, MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -42,6 +43,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     LayoutModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDialogModule,
 
 
   ],
@@ -63,6 +65,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     LayoutModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDialogModule,
 
 
   ]

@@ -42,7 +42,8 @@ nav ul li{
     text-transform: uppercase;
 }
 .project{
-    display: flex;
+    display: grid;
+    grid-template-columns: 60% 40%;
 }
 .shop{
     flex: 75%;
@@ -134,4 +135,12 @@ nav ul li{
 }
 .right-bar a:hover{
     background-color: rgb(64, 158, 212);
-}
+}table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
