@@ -11,7 +11,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CartComponent } from './components/cart/cart.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
@@ -21,14 +20,14 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { BodyComponent } from './components/body/body.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
-<<<<<<< Updated upstream
-=======
+import { CongratulationsComponent } from './components/congratulations/congratulations.component';
+
 import { FooterComponent } from './components/footer/footer.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ListSellsComponent } from './components/list-sells/list-sells.component';
 
->>>>>>> Stashed changes
+
 
 
 @NgModule({
@@ -47,13 +46,13 @@ import { ListSellsComponent } from './components/list-sells/list-sells.component
     BodyComponent,
     PanelComponent,
     EditPerfilComponent,
-<<<<<<< Updated upstream
-=======
+    CongratulationsComponent,
+
     FooterComponent,
     ShopComponent,
     CheckoutComponent,
     ListSellsComponent,
->>>>>>> Stashed changes
+
   ],
   imports: [
     BrowserModule,

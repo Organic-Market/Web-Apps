@@ -8,15 +8,12 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ProductService {
-<<<<<<< Updated upstream
+  basePath: string = environment.basePathProduc;
   basePath: string = environment.basePathProducts;
-=======
-  basePath: string = environment.basePathProduct;
   basePathInCar: string = environment.basePathProductInCar;
 
 
   idActualProduct!: number;
->>>>>>> Stashed changes
 
   constructor(private http: HttpClient) { }
   
