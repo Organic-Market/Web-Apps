@@ -21,6 +21,14 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { BodyComponent } from './components/body/body.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
+<<<<<<< Updated upstream
+=======
+import { FooterComponent } from './components/footer/footer.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ListSellsComponent } from './components/list-sells/list-sells.component';
+
+>>>>>>> Stashed changes
 
 
 @NgModule({
@@ -39,6 +47,13 @@ import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.compon
     BodyComponent,
     PanelComponent,
     EditPerfilComponent,
+<<<<<<< Updated upstream
+=======
+    FooterComponent,
+    ShopComponent,
+    CheckoutComponent,
+    ListSellsComponent,
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
