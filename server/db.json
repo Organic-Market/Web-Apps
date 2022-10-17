@@ -83,6 +83,22 @@
       "price": "300",
       "category": "cebolla",
       "quantity": "600"
+    },
+    {
+      "id": 8,
+      "name": "Choclo",
+      "img": "neuva",
+      "price": "700",
+      "category": "maiz",
+      "quantity": "700"
+    },
+    {
+      "id": 7,
+      "name": "Papa",
+      "img": "nueva",
+      "price": "300",
+      "category": "Tubérculos ",
+      "quantity": "500"
     }
   ],
   "ventas": [
