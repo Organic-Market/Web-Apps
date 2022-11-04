@@ -6,6 +6,10 @@
     <button mat-raised-button color="warn" (click)="openDialog()"
     >Nuevo</button>
   </div>
+  <div class="col-lg-6" style="text-align: right">
+    <button mat-raised-button color="warn" (click)="openDialog()"
+    >Exportar Excel</button>
+  </div>
 </div>
 
 <mat-form-field appearance="standard">
@@ -42,7 +46,7 @@
   </ng-container>
 
   <ng-container matColumnDef="category">
-    <th mat-header-cell *matHeaderCellDef>Cantidad</th>
+    <th mat-header-cell *matHeaderCellDef>Categoria</th>
     <td mat-cell *matCellDef="let element">{{ element.category }}</td>
   </ng-container>
 
