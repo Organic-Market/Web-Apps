@@ -38,14 +38,20 @@ export class UserService {
       user
     );
   }
-
-  /*addMayorista(mayorista: Mayorista) {
-    return this.http.post<Mayorista>(
-      `${this.basePath}/users`,
-      mayorista
+  //listo
+  addUserM(user: User) {
+    return this.http.post<User>(
+      `${this.basePath}/mayorista`,
+      user
     );
-  }*/
-  
+  }
+  //listo
+  addUserA(user: User) {
+    return this.http.post<User>(
+      `${this.basePath}/agricultor`,
+      user
+    );
+  }
 
   //listo
   updateUser(id: any, user: User) {

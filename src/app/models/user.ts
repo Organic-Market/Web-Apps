@@ -2,8 +2,10 @@ export interface User {
     id: number;
     names: string;
     lastnames: string;
+    username:string;
     email: string;
-    rol?:any;
+    address: string;
+    rol:string;
     password:string;
 }
   

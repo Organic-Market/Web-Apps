@@ -30,8 +30,10 @@ export class EditPerfilComponent implements OnInit {
       this.myForm = this.fb.group({
         names: [this.user.names,[Validators.required, Validators.maxLength(60)]],
         lastnames: [this.user.lastnames,[Validators.required, Validators.maxLength(60)]],
+        username: [this.user.username, [Validators.required]],
         email: [this.user.email, [Validators.required, Validators.email]],
         rol: [this.user.rol],
+        address: [this.user.address],
         password: [this.user.password, [Validators.required]],
       });
     });
@@ -42,8 +44,10 @@ export class EditPerfilComponent implements OnInit {
       id: this.idUser,
       names: this.myForm.get('names')!.value,
       lastnames: this.myForm.get('lastnames')!.value,
+      username: this.myForm.get('username')!.value,
       email: this.myForm.get('email')!.value,
       rol: this.myForm.get('rol')!.value,
+      address: this.myForm.get('address')!.value,
       password: this.myForm.get('password')!.value,
     };
     this.userService.updateUser(this.idUser, user).subscribe({

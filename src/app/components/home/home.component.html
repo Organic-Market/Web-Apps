@@ -1,11 +1,11 @@
 
-<section class="banner-parallax banner-principal">
+<section class="banner-parallax banner-principal" >
     <div class="banner" id="banner"></div>
     <div class="texto-banner" id="site-type">
       <h2>Obten los mejores productos al mejor precio
       </h2>
       <h1 class="typewrite" id="TituloLanding"><span>Agricultores</span></h1>
-      <button mat-button class="scroll-suave">Registrar</button>
+      <button mat-button class="scroll-suave" routerLink="/register">Registrar</button>
     </div>
     <div>
       <img src="/assets/img/campo.png" class="campo" id="campo" alt="">
@@ -15,8 +15,6 @@
       <img src="/assets/img/Agricultor.png" class="agricultor" id="agricultor" alt="">
     </div>
   </section>
-
-
   <section class="beneficios" id="beneficios">
     <div class="contenedor">
       <div class="titulo-seccion">
@@ -43,10 +41,7 @@
       </div>
     </div>      
   </section>
-
-
-  
-<section class="nosotros" id="acercaDe">
+  <section class="nosotros" id="acercaDe">
     <div class="contenedor">
     <div class="titulo-seccion">
       <h2>¿Quienes Somos?</h2>
@@ -61,35 +56,18 @@
         <button  mat-button >Conocer mas</button>
       </div>
       <div class="perfil">
-        <img src="/assets/img/perfil2.png" class="img-p2" alt="">
-        <h2 class="name-p2">Alexander Cano</h2>
-        <button  mat-button >Conocer mas</button>
-      </div>
-      <div class="perfil">
         <img src="/assets/img/perfil3.png" class="img-p3" alt="">
         <h2 class="name-p3">Antony Ortega</h2>
         <button  mat-button >Conocer mas</button>
-      </div>
-      <div class="perfil">
-        <img src="/assets/img/perfil4.png" class="img-p4" alt="">
-        <h2 class="name-p4">Fernando Sotelo</h2>
-        <button mat-button >Conocer mas</button>
       </div>
       <div class="perfil">
         <img src="/assets/img/perfil5.png" class="img-p5" alt="">
         <h2 class="name-p5">Diego Alban</h2>
         <button mat-button >Conocer mas</button>
       </div>
-      <div class="perfil">
-        <img src="/assets/img/perfil6.png" class="img-p6" alt="">
-        <h2 class="name-p6">Jhayro Roncal</h2>
-        <button mat-button >Conocer mas</button>
-      </div>
     </div>
   </div>
   </section>
-
-
   <section class="planes" id="planes">
     <div class="contenedor">
       <div class="titulo-seccion">
@@ -124,7 +102,7 @@
             </div>
 
             <div class="text-center m-5">
-              <a href="" id="free-a">Empezar ahora</a>
+              <a routerLink="/register" id="free-a">Empezar ahora</a>
             </div>
           </div>
         </div>
@@ -158,7 +136,7 @@
               </div>
           </div>
           <div class="text-center m-5">
-            <a href="" id="pay-a">Empezar ahora</a>
+            <a routerLink="/register" id="pay-a">Empezar ahora</a>
           </div>
           </div>
         </div>

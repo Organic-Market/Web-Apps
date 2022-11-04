@@ -34,8 +34,10 @@ export class RegisterComponent implements OnInit {
       id: [''],
       names: ['', [Validators.required, Validators.maxLength(30)]],
       lastnames: ['', [Validators.required]],
+      username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       rol: ['', [Validators.required]],
+      address: ['', [Validators.required]],
       password: [ '', [Validators.compose([Validators.required,Validators.minLength(8)])]],
     });
   }
@@ -45,8 +47,10 @@ export class RegisterComponent implements OnInit {
       id:0,
       names: this.myForm.get('names')!.value,
       lastnames: this.myForm.get('lastnames')!.value,
+      username: this.myForm.get('username')!.value,
       email: this.myForm.get('email')!.value,
       rol: this.myForm.get('rol')!.value,
+      address: this.myForm.get('address')!.value,
       password:this.myForm.get('password')!.value,      
     };
     this.userService.addUser(user).subscribe({
@@ -61,8 +65,6 @@ export class RegisterComponent implements OnInit {
       },
     });
 
-
   }
-
 
 }
