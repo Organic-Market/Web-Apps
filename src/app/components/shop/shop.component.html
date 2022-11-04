@@ -14,8 +14,8 @@
                     <h3>{{data.name}}</h3>
                     <h4>Precio: S/{{data.price}}/saco</h4>
                     <p class="unit">Elegir cantidad en carrito</p>
-                    <p class="unit">{{data.quantity}} sacos disponibles</p>
-                    <button mat-button color="warn" (click)="saveProduct(data.id,data.price,data.name,data.quantity,data.img,data.category)">Añadir al carrito</button>
+                    <p class="unit">{{data.stock}} sacos disponibles</p>
+                    <button mat-button color="warn" (click)="saveProduct(data.id,data.price,data.name,data.stock,data.category)">Añadir al carrito</button>
                 </div>
             </div>
         </div>

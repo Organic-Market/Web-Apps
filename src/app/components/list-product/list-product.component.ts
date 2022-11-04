@@ -15,7 +15,7 @@ import { ProductService } from './../../services/product.service';
   styleUrls: ['./list-product.component.css']
 })
 export class ListProductComponent implements OnInit {
-  displayedColumns: string[] = ['id','img','name','price','quantity','category', 'actions'];
+  displayedColumns: string[] = ['id','img','name','price','stock','category', 'actions'];
   dataSource = new MatTableDataSource<Product>();
 
 

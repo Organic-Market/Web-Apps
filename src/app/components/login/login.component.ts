@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
 
   login(){
-    this.http.get<any>(this.basePath)
+    this.http.get<any>(`${this.basePath}/users`)
     .subscribe(res=>{
       const user=res.find((a:any)=>{
         

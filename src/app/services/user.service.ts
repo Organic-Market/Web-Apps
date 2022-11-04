@@ -14,15 +14,15 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  //listo
   getUser(){
-    return this.http.get<User[]>(this.basePath)
+    return this.http.get<User[]>(`${this.basePath}/users`)
   }
 
+  //listo
   getUserId(id:any){
-    return this.http.get<User>(`${this.basePath}/${id}`)
+    return this.http.get<User>(`${this.basePath}/users/${id}`)
   }
-
-
 
   getIdActaulUser():number{
     return this.idActualUser
@@ -30,15 +30,26 @@ export class UserService {
   setActualIde(id:any):void{
     this.idActualUser=id;
   }
+
+  //listo
   addUser(user: User) {
     return this.http.post<User>(
-      this.basePath,
+      `${this.basePath}/users`,
       user
     );
   }
 
+  /*addMayorista(mayorista: Mayorista) {
+    return this.http.post<Mayorista>(
+      `${this.basePath}/users`,
+      mayorista
+    );
+  }*/
+  
+
+  //listo
   updateUser(id: any, user: User) {
-    return this.http.put<User>(`${this.basePath}/${id}`, user);
+    return this.http.put<User>(`${this.basePath}/users/${id}`, user);
   }
 
 }

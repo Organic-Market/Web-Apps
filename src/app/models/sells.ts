@@ -3,7 +3,7 @@ export interface Sell {
     name: string;
     lastname:string;
     email:string;
-    product:string;
+    product:any;
     total:number;
     quantity: number;
   }

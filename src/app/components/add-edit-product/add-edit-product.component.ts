@@ -29,8 +29,7 @@ export class AddEditProductComponent implements OnInit {
     this.myForm = this.fb.group({
       id: [''],
       name: ['', [Validators.required, Validators.maxLength(20)]],
-      quantity: ['', [Validators.required]],
-      img: ['', [Validators.required]],
+      stock: ['', [Validators.required]],
       price: ['', [Validators.required]],
       category: ['', [Validators.required]],      
     });
@@ -41,10 +40,9 @@ export class AddEditProductComponent implements OnInit {
     const product: Product = {
       id: 0,
       name: this.myForm.get('name')!.value,
-      img: this.myForm.get('img')!.value,
       price: this.myForm.get('price')!.value,
       category: this.myForm.get('category')!.value,
-      quantity: this.myForm.get('quantity')!.value
+      stock: this.myForm.get('stock')!.value
 
     };
     this.productService.addProduct(product).subscribe({

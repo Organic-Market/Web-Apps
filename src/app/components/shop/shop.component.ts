@@ -29,14 +29,13 @@ export class ShopComponent implements OnInit {
     });
   }
 
-  saveProduct(id:any,price:any,name:any,quantity:any,img:any,category:any): void {
+  saveProduct(id:any,price:any,name:any,stock:any,category:any): void {
     const product: Product = {
       id: id,
       name: name,
-      img: img,
       price: price,
       category: category,
-      quantity: quantity,
+      stock: stock,
 
     };
     this.productService.addProductInCar(product).subscribe({

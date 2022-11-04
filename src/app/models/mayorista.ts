@@ -1,7 +1,7 @@
-export interface User {
+export interface Mayorista {
     id: number;
-    names: string;
-    lastnames: string;
+    name: string;
+    lastname: string;
     email: string;
     rol?:any;
     password:string;

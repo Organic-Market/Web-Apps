@@ -33,10 +33,9 @@ export class EditProductComponent implements OnInit {
       this.product = data;
       this.myForm = this.fb.group({
         name: [this.product.name,[Validators.required, Validators.maxLength(10)],],
-        img: [this.product.img, [Validators.required]],
         price: [this.product.price, [Validators.required]],
         category: [this.product.category, [Validators.required]],    
-        quantity: [this.product.quantity, [Validators.required]],
+        stock: [this.product.stock, [Validators.required]],
       });
     });
   }
@@ -44,10 +43,9 @@ export class EditProductComponent implements OnInit {
     const product: Product = {
       id: this.idProduct,
       name: this.myForm.get('name')!.value,
-      img: this.myForm.get('img')!.value,
       price: this.myForm.get('price')!.value,
       category: this.myForm.get('category')!.value,
-      quantity: this.myForm.get('quantity')!.value
+      stock: this.myForm.get('stock')!.value
     };
     this.productService.updateProduct(this.idProduct, product).subscribe({
       next: (data) => {
