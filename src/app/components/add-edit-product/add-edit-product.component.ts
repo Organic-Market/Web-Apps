@@ -24,6 +24,7 @@ export class AddEditProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   reactiveForm() {
@@ -31,8 +32,7 @@ export class AddEditProductComponent implements OnInit {
       id: [''],
       name: ['', [Validators.required, Validators.maxLength(20)]],
       stock: ['', [Validators.required]],
-      price: ['', [Validators.required]],
-      category: ['', [Validators.required]],      
+      unit_price: ['', [Validators.required]],   
     });
   }
 
@@ -40,7 +40,7 @@ export class AddEditProductComponent implements OnInit {
     const product: Product = {
       id: 0,
       name: this.myForm.get('name')!.value,
-      price: this.myForm.get('price')!.value,
+      unit_price: this.myForm.get('unit_price')!.value,
       category: this.myForm.get('category')!.value,
       stock: this.myForm.get('stock')!.value,
     };

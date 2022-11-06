@@ -33,17 +33,16 @@ export class EditProductComponent implements OnInit {
       this.product = data;
       this.myForm = this.fb.group({
         name: [this.product.name,[Validators.required, Validators.maxLength(10)],],
-        price: [this.product.price, [Validators.required]],
-        category: [this.product.category, [Validators.required]],    
+        unit_price: [this.product.unit_price, [Validators.required]],
         stock: [this.product.stock, [Validators.required]],
       });
     });
-  }
+  } 
   updateProduct() {
     const product: Product = {
       id: this.idProduct,
       name: this.myForm.get('name')!.value,
-      price: this.myForm.get('price')!.value,
+      unit_price: this.myForm.get('unit_price')!.value,
       category: this.myForm.get('category')!.value,
       stock: this.myForm.get('stock')!.value
     };

@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   basePath:'http://localhost:8080/api',
-  basePathProducts:'http://localhost:3000/products',
-  basePathProductInCar:'http://localhost:3000/productsincar',
-  basePathSell:'http://localhost:3000/ventas',
+  basePathProducts:'http://localhost:8080/api',
+  basePathProductInCar:'http://localhost:8080/api',
+  basePathSell:'http://localhost:8080/api',
 
 
 

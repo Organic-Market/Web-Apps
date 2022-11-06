@@ -61,5 +61,8 @@ export class ProductService {
     return this.http.delete<Product>(`${this.basePathInCar}/${id}`);
   }
 
+  getCategory(categoria?: any){
+    return this.http.get<any>(`${this.basePath}/categoria`);
+  }
 
 }
