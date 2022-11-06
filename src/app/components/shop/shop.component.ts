@@ -20,9 +20,6 @@ export class ShopComponent implements OnInit {
     this.getProducts();
   }
 
- 
-
-
   getProducts() {
     this.productService.getProduct().subscribe((data: Product[]) => {
       this.dataSource= data;

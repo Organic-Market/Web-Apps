@@ -55,7 +55,7 @@ export class EditPerfilComponent implements OnInit {
       lastname: this.myForm.get('lastname')!.value,
       username: this.myForm.get('username')!.value,
       email: this.myForm.get('email')!.value,
-      rol: this.myForm.get('rol')!.value,
+      rol: this.myForm.get('rol')!.value, 
       address: this.myForm.get('address')!.value,
       password: this.myForm.get('password')!.value,
     };

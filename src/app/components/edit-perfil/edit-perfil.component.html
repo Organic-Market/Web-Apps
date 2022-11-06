@@ -97,12 +97,14 @@
                 </div>
           
                 <div class="col-lg-12">
+                  <router-outlet></router-outlet>
                   <button mat-raised-button
                     class="btn btn-success btn-lg float-right"
                     [disabled]="myForm.invalid"
                     type="button"
                     style="margin-left: 10 px"
                     (click)="updateUser()"
+                    routerLink="/panel"
                   >
                     Editar Perfil
                   </button>
@@ -110,5 +112,4 @@
               </form>
         </div>
     </div>
-   
 </div>
