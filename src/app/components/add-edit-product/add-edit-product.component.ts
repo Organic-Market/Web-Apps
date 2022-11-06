@@ -41,7 +41,7 @@ export class AddEditProductComponent implements OnInit {
       id: 0,
       name: this.myForm.get('name')!.value,
       unit_price: this.myForm.get('unit_price')!.value,
-      category: this.myForm.get('category')!.value,
+      //category: this.myForm.get('category')!.value,
       stock: this.myForm.get('stock')!.value,
     };
     this.productService.addProduct(product).subscribe({
