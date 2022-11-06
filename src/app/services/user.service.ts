@@ -8,27 +8,45 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  basePath:string=environment.basePath;
+  basePath: string = environment.basePath;
 
   idActualUser!: number;
 
   constructor(private http: HttpClient) { }
 
   //listo
-  getUser(){
+  getUser() {
     return this.http.get<User[]>(`${this.basePath}/users`)
   }
 
   //listo
-  getUserId(id:any){
-    return this.http.get<User>(`${this.basePath}/users/${id}`)
+  getUserIdM(id: any) {
+    return this.http.get<User>(`${this.basePath}/mayorista/${id}`)
+  }
+  getUserIdA(id: any) {
+    return this.http.get<User>(`${this.basePath}/agricultor/${id}`)
   }
 
-  getIdActaulUser():number{
-    return this.idActualUser
+  getIdActaulUser(): number {
+    const currentUser = JSON.parse(localStorage.getItem('userId') || '{}');
+    return this.idActualUser = currentUser;
   }
-  setActualIde(id:any):void{
-    this.idActualUser=id;
+
+  getUsernameActualUser(): any {
+    const currentUsername = localStorage.getItem('username');
+    return currentUsername;
+  }
+
+  getUserAgricultorByUsername(username: string) {
+    return this.http.get<User>(`${this.basePath}/agricultor/${username}`)
+  }
+
+  getUserMayoristaByUsername(username: string) {
+    return this.http.get<User>(`${this.basePath}/mayorista/${username}`)
+  }
+
+  setActualIde(id: any): void {
+    this.idActualUser = id;
   }
 
   //listo
@@ -54,8 +72,11 @@ export class UserService {
   }
 
   //listo
-  updateUser(id: any, user: User) {
-    return this.http.put<User>(`${this.basePath}/users/${id}`, user);
+  updateUserA(id: any, user: User) {
+    return this.http.put<User>(`${this.basePath}/agricultor/${id}`, user);
   }
 
+  updateUserM(id: any, user: User) {
+    return this.http.put<User>(`${this.basePath}/mayorista/${id}`, user);
+  }
 }

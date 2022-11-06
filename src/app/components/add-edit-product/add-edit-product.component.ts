@@ -23,7 +23,8 @@ export class AddEditProductComponent implements OnInit {
     this.reactiveForm();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   reactiveForm() {
     this.myForm = this.fb.group({
@@ -34,7 +35,6 @@ export class AddEditProductComponent implements OnInit {
       category: ['', [Validators.required]],      
     });
   }
-  
 
   saveProduct(): void {
     const product: Product = {
@@ -42,8 +42,7 @@ export class AddEditProductComponent implements OnInit {
       name: this.myForm.get('name')!.value,
       price: this.myForm.get('price')!.value,
       category: this.myForm.get('category')!.value,
-      stock: this.myForm.get('stock')!.value
-
+      stock: this.myForm.get('stock')!.value,
     };
     this.productService.addProduct(product).subscribe({
       next: (data) => {
