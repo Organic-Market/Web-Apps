@@ -15,55 +15,78 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
 
   hide = true;
-  basePath:string=environment.basePath;
+  basePath: string = environment.basePath;
   actualUser!: User;
   auth!: Boolean;
 
   public loginForm!: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder, 
+    private formBuilder: FormBuilder,
     private userService: UserService,
-    private http:HttpClient,
-    private router:Router,
+    private http: HttpClient,
+    private router: Router,
     private snackBar: MatSnackBar,
 
-    ){}
+  ) { }
   ngOnInit(): void {
-    this.loginForm=this.formBuilder.group({
-      email:[''],
-      password:['']
+    this.loginForm = this.formBuilder.group({
+      email: [''],
+      password: ['']
     })
   }
 
 
-  login(){
-    this.http.get<any>(this.basePath)
-    .subscribe(res=>{
-      const user=res.find((a:any)=>{
-        
-        if(a.email===this.loginForm.value.email && a.password === this.loginForm.value.password){
-          this.userService.setActualIde(a.id);
-          this.auth=true;
+  login() {
+    this.http.get<any>(`${this.basePath}/mayorista`)
+      .subscribe(res => {
+
+        const user = res.find((a: any) => {
+
+          if (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password) {
+            this.userService.setActualIde(a.id);
+            localStorage.setItem("username",a.username);
+            this.auth = true;
+          }
+          return this.auth
+        });
+        if (user) {
+          this.snackBar.open('Ingresaste', '', {
+            duration: 3000,
+          });
+          this.loginForm.reset();
+          this.router.navigate(['panel']);
+        } else {
+          this.http.get<any>(`${this.basePath}/agricultor`)
+            .subscribe(res => {
+              const user = res.find((a: any) => {
+
+                if (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password) {
+                  this.userService.setActualIde(a.id);
+                  localStorage.setItem("username",a.username);
+                  this.auth = true;
+                }
+                return this.auth
+              });
+              if (user) {
+                this.snackBar.open('Ingresaste', '', {
+                  duration: 3000,
+                });
+                this.loginForm.reset();
+                this.router.navigate(['panel']);
+              }
+              else{
+                this.snackBar.open('Error en credenciales', '', {
+                  duration: 3000,
+                });
+              }
+            })
         }
-        return this.auth
-      });
-      if(user){
-        this.snackBar.open('Ingresaste', '', {
+      }, err => {
+        this.snackBar.open('Ingresa tus credenciales', '', {
           duration: 3000,
         });
-        this.loginForm.reset();
-        this.router.navigate(['panel']);
-      }else{
-        this.snackBar.open('El usuario es Incorrecto', '', {
-          duration: 3000,
-        });
-      }
-    },err=>{
-      this.snackBar.open('Ingresa tus credenciales', '', {
-        duration: 3000,
-      });
-    })
+      })
 
   }
 }

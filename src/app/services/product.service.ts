@@ -13,17 +13,18 @@ export class ProductService {
   idActualProduct!: number;
 
   constructor(private http: HttpClient) { }
-  
+  //listo
   getProduct() {
-    return this.http.get<Product[]>(this.basePath);
+    return this.http.get<Product[]>(`${this.basePath}/products`);
   }
 
   getProductInCar() {
     return this.http.get<Product[]>(this.basePathInCar);
   }
 
+  //listo
   getProductId(id: any) {
-    return this.http.get<Product>(`${this.basePath}/${id}`);
+    return this.http.get<Product>(`${this.basePath}/products/${id}`);
   }
 
   setActualProductId(id:any):void{
@@ -33,16 +34,19 @@ export class ProductService {
   getActualProductId(){
     return this.idActualProduct
   }
+  //listo
   addProduct(product: Product) {
-    return this.http.post<Product>(this.basePath, product);
+    return this.http.post<Product>(`${this.basePath}/products`, product);
   }
 
+  //listo
   updateProduct(id: any, product: Product) {
-    return this.http.put<Product>(`${this.basePath}/${id}`, product);
+    return this.http.put<Product>(`${this.basePath}/products/${id}`, product);
   }
 
+  //listo
   deleteProduct(id: any) {
-    return this.http.delete<Product>(`${this.basePath}/${id}`);
+    return this.http.delete<Product>(`${this.basePath}/products/${id}`);
   }
 
   addProductInCar(productInCar: Product) {
@@ -57,5 +61,8 @@ export class ProductService {
     return this.http.delete<Product>(`${this.basePathInCar}/${id}`);
   }
 
+  getCategory(categoria?: any){
+    return this.http.get<any>(`${this.basePath}/categoria`);
+  }
 
 }

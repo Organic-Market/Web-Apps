@@ -62,9 +62,9 @@
             <h2>Total</h2>
             <div class="detalle" *ngFor="let data of dataSource">
                 <p>{{data.name}}</p>
-                <p>{{data.price}}</p>
-                <p>S/. {{data.quantity}}</p>
-                <button mat-button (click)="saveVenta(data.name,data.price,data.quantity)">Pagar</button>
+                <p>{{data.unit_price}}</p>
+                <p>S/. {{data.stock}}</p>
+                <button mat-button (click)="saveVenta(data.name,data.unit_price,data.stock)">Pagar</button>
             </div>
             
         </div>
