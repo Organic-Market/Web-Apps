@@ -50,6 +50,15 @@
           <input matInput  formControlName="unit_price" />
         </mat-form-field>
 
+        <!-- <mat-form-field>
+          <mat-label>Categoría</mat-label>
+          <mat-select formControlName="category">
+            <mat-option *ngFor="let cat of categories" [value]="cat.id">
+              {{ cat.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
         <div class="col-lg-12">
         </div>
       </form>
