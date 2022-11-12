@@ -38,23 +38,24 @@ export class EditProductComponent implements OnInit {
       });
     });
   } 
-  updateProduct() {
-    const product: Product = {
-      id: this.idProduct,
-      name: this.myForm.get('name')!.value,
-      unit_price: this.myForm.get('unit_price')!.value,
-      stock: this.myForm.get('stock')!.value
-    };
-    this.productService.updateProduct(this.idProduct, product).subscribe({
-      next: (data) => {
-        this.snackBar.open('El producto fue actualizado con exito!', '', {
-          duration: 3000,
-        });
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
+  // updateProduct() {
+  //   const product: Product = {
+  //     id: this.idProduct,
+  //     name: this.myForm.get('name')!.value,
+  //     unit_price: this.myForm.get('unit_price')!.value,
+  //     stock: this.myForm.get('stock')!.value
+
+  //   };
+  //   this.productService.updateProduct(this.idProduct, product).subscribe({
+  //     next: (data) => {
+  //       this.snackBar.open('El producto fue actualizado con exito!', '', {
+  //         duration: 3000,
+  //       });
+  //     },
+  //     error: (err) => {
+  //       console.log(err);
+  //     },
+  //   });
+  // }
 
 }

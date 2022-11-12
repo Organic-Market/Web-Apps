@@ -26,24 +26,24 @@ export class ShopComponent implements OnInit {
     });
   }
 
-  saveProduct(id:any,unit_price:any,name:any,stock:any): void {
-    const product: Product = {
-      id: id,
-      name: name,
-      unit_price: unit_price,
-      stock: stock,
+  // saveProduct(id:any,unit_price:any,name:any,stock:any): void {
+  //   const product: Product = {
+  //     id: id,
+  //     name: name,
+  //     unit_price: unit_price,
+  //     stock: stock,
 
-    };
-    this.productService.addProductInCar(product).subscribe({
-      next: (data) => {
-        this.snackBar.open('El producto añadido al carrito!', '', {
-          duration: 3000,
-        });
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
+  //   };
+  //   this.productService.addProductInCar(product).subscribe({
+  //     next: (data) => {
+  //       this.snackBar.open('El producto añadido al carrito!', '', {
+  //         duration: 3000,
+  //       });
+  //     },
+  //     error: (err) => {
+  //       console.log(err);
+  //     },
+  //   });
+  // }
 
 }

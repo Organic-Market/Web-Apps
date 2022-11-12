@@ -15,30 +15,33 @@ export class ProductService {
   constructor(private http: HttpClient) { }
   //listo
   getProduct() {
-    return this.http.get<Product[]>(`${this.basePath}/products`);
-  }
-
-  getProductInCar() {
-    return this.http.get<Product[]>(this.basePathInCar);
+    const endpoint = `${this.basePath}/products`;
+    return this.http.get<Product[]>(endpoint);
   }
 
   //listo
   getProductId(id: any) {
     return this.http.get<Product>(`${this.basePath}/products/${id}`);
   }
+  
+  //listo
+  saveProduct(product: any) {
+    const endpoint = `${this.basePath}/products`;
+    return this.http.post<Product[]>(endpoint, product);
+  }
 
   setActualProductId(id:any):void{
     this.idActualProduct=id;
   }
-
+    
   getActualProductId(){
-    return this.idActualProduct
+   return this.idActualProduct
   }
-  //listo
-  addProduct(product: Product) {
-    return this.http.post<Product>(`${this.basePath}/products`, product);
+      
+  getProductInCar() {
+    return this.http.get<Product[]>(this.basePathInCar);
   }
-
+      
   //listo
   updateProduct(id: any, product: Product) {
     return this.http.put<Product>(`${this.basePath}/products/${id}`, product);

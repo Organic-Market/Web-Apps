@@ -25,12 +25,11 @@ export class AddEditProductComponent implements OnInit {
     private categoryService: CategoryService,
     private snackBar: MatSnackBar,
     private router: Router
-  ) { 
-    this.reactiveForm();
-  }
+  ) { }
 
   ngOnInit(): void {
-
+    this.reactiveForm();
+    this.getCategories();
   }
 
   reactiveForm() {
@@ -80,12 +79,12 @@ export class AddEditProductComponent implements OnInit {
     uploadImageData.append('categoryId', product.category);
 
     //TODO: llamado a metodo service registro producto
-    this.productService.addProduct(uploadImageData).subscribe({
+    this.productService.saveProduct(uploadImageData).subscribe({
       next: (data) => {
         this.snackBar.open('La categoría fue registrado con exito!', '', {
           duration: 3000,
         });
-        this.router.navigate(['/admin/product']);
+        this.router.navigate(['/productos']);
       },
       error: (err) => {
         console.log(err);
