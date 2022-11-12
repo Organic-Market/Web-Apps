@@ -4,29 +4,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/product';
 
+const basePath = environment.basePath;
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  basePath: string = environment.basePathProducts;
   basePathInCar: string = environment.basePathProductInCar;
   idActualProduct!: number;
 
   constructor(private http: HttpClient) { }
   //listo
   getProduct() {
-    const endpoint = `${this.basePath}/products`;
+    const endpoint = `${basePath}/products`;
     return this.http.get<Product[]>(endpoint);
   }
 
   //listo
   getProductId(id: any) {
-    return this.http.get<Product>(`${this.basePath}/products/${id}`);
+    return this.http.get<Product>(`${basePath}/products/${id}`);
   }
   
   //listo
   saveProduct(product: any) {
-    const endpoint = `${this.basePath}/products`;
+    const endpoint = `${basePath}/products`;
     return this.http.post<Product[]>(endpoint, product);
   }
 
@@ -44,12 +45,12 @@ export class ProductService {
       
   //listo
   updateProduct(id: any, product: Product) {
-    return this.http.put<Product>(`${this.basePath}/products/${id}`, product);
+    return this.http.put<Product>(`${basePath}/products/${id}`, product);
   }
 
   //listo
   deleteProduct(id: any) {
-    return this.http.delete<Product>(`${this.basePath}/products/${id}`);
+    return this.http.delete<Product>(`${basePath}/products/${id}`);
   }
 
   addProductInCar(productInCar: Product) {
@@ -64,8 +65,15 @@ export class ProductService {
     return this.http.delete<Product>(`${this.basePathInCar}/${id}`);
   }
 
-  getCategory(categoria?: any){
-    return this.http.get<any>(`${this.basePath}/categoria`);
+  // getCategory(categoria?: any){
+  //   return this.http.get<any>(`${basePath}/categoria`);
+  // }
+
+  exportProduct() {
+    const endpoint = `${basePath}/products/export/excel`;
+    return this.http.get(endpoint, {
+      responseType: 'blob',
+    });
   }
 
 }

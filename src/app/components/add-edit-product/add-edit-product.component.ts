@@ -14,8 +14,8 @@ import { Category } from 'src/app/models/category';
 })
 export class AddEditProductComponent implements OnInit {
 
-  myForm!: FormGroup;
-  categories: Category[]=[];
+  public myForm!: FormGroup;
+  categories: Category[] = [];
   selectedFile: any;
   nameImg: string = '';
 
@@ -72,16 +72,16 @@ export class AddEditProductComponent implements OnInit {
     };
 
     const uploadImageData = new FormData();
-    uploadImageData.append('picture', product.picture, product.picture.name);
     uploadImageData.append('name', product.name);
     uploadImageData.append('unit_price', product.unit_price.toString());
-    uploadImageData.append('stock', product.stock.toString());
+    uploadImageData.append('stock', product.stock.toFixed());
     uploadImageData.append('categoryId', product.category);
+    uploadImageData.append('picture', product.picture, product.picture.name);
 
     //TODO: llamado a metodo service registro producto
     this.productService.saveProduct(uploadImageData).subscribe({
       next: (data) => {
-        this.snackBar.open('La categoría fue registrado con exito!', '', {
+        this.snackBar.open('El producto fue registrado con exito!', '', {
           duration: 3000,
         });
         this.router.navigate(['/productos']);

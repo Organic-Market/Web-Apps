@@ -1,24 +1,24 @@
 import { Category } from './../models/category';
 import { HttpClient } from '@angular/common/http';
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
+
+const basePath = environment.basePath;
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  basePath: string = environment.basePath;
-
   constructor(private http: HttpClient) { }
 
   getCategories() {
-    const endpoint = `${this.basePath}/categories`;
+    const endpoint = `${basePath}/categoria`;
     return this.http.get<Category[]>(endpoint);
   }
 
   getCategorieById(id: any) {
-    const endpoint = `${this.basePath}/categories/ ${id}`;
+    const endpoint = `${basePath}/categoria/${id}`;
     return this.http.get<Category>(endpoint);
   }
 }

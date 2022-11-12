@@ -19,7 +19,8 @@
           
           <mat-card-content class="dashboard-card-content">
             <mat-card-title>Estadística de productos más vendidos</mat-card-title>
-            <img mat-card-image src="/assets/img/estadis.PNG" alt="">
+
+            
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>
@@ -42,36 +43,11 @@
           </mat-card-header>
           
           <mat-card-content class="dashboard-card-content">
-            <mat-card-title>Productos frescos</mat-card-title>
-            <mat-card-subtitle>Del campo a tu mesa</mat-card-subtitle>
-            <img mat-card-image src="/assets/img/banner-footer.jpg" alt="">
+            <mat-card-title>Reportes</mat-card-title>
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>
     </mat-grid-list>
 
-    <mat-grid-list cols="2" >
-      <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-        <mat-card class="dashboard-card">
-          <mat-card-header>
-            <mat-card-title>
-              {{card.title}}
-              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
-              </mat-menu>
-            </mat-card-title>
-          </mat-card-header>
-          
-          <mat-card-content class="dashboard-card-content">
-            <mat-card-title>Principales frutas exportadas</mat-card-title>
-            <img mat-card-image src="/assets/img/exportado.png" alt="">
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
 </div>
   

@@ -2,6 +2,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
@@ -15,18 +16,29 @@ import { ProductService } from './../../services/product.service';
   styleUrls: ['./list-product.component.css']
 })
 export class ListProductComponent implements OnInit {
-  displayedColumns: string[] = ['id','name','unit_price','stock','category','picture', 'actions'];
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'unit_price',
+    'stock',
+    'category',
+    'picture', 
+    'actions',
+  ];
   dataSource = new MatTableDataSource<Product>();
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
 
-  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
-
-
-    constructor(private productService: ProductService,public dialog: MatDialog, private router: Router) {}
+    constructor(
+      private productService: ProductService,
+      public dialog: MatDialog,
+      private snackBar: MatSnackBar,
+      private router: Router
+      ) {}
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getProduct();
   }
   
   openDialog(){
@@ -37,25 +49,40 @@ export class ListProductComponent implements OnInit {
     });
   }
 
-  getAllProducts(){
-    this.productService.getProduct()
-    .subscribe({
-      next:(res)=>{
-        this.dataSource=new MatTableDataSource(res);
-        this.dataSource.paginator=this.paginator;
+  getProduct() {
+    this.productService.getProduct().subscribe(
+      (data) => {
+        console.log('respuesta de productos: ', data);
+        this.processProductResponse(data);
       },
-      error:(err)=>{
-        alert("Ocurrio un error")
+      (error: any) => {
+        console.log('error en productos: ', error);
       }
-    })
+    );
+  }
+
+  processProductResponse(resp: any) {
+    const dateProduct: Product[] = [];
+
+    let listCProduct = resp;
+
+    listCProduct.forEach((element: Product) => {
+      //element.category = element.category.name;
+      element.picture = 'data:image/jpeg;base64,' + element.picture;
+      dateProduct.push(element);
+    });
+
+    //set the datasource
+    this.dataSource = new MatTableDataSource<Product>(dateProduct);
+    this.dataSource.paginator = this.paginator;
   }
 
   openDialogedit(id:number){
-    let idActutalProduct=id;
-    this.productService.setActualProductId(idActutalProduct);
+    let idActualProduct=id;
+    this.productService.setActualProductId(idActualProduct);
     const dialogRef = this.dialog.open(EditProductComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.getAllProducts();
+      this.getProduct();
       console.log(`Dialog result: ${result}`);
     });
   }
@@ -79,4 +106,43 @@ export class ListProductComponent implements OnInit {
     });
   }
 
+  openSnackBar(
+    message: string,
+    action: string
+  ): MatSnackBarRef<SimpleSnackBar> {
+    return this.snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
+
+  exportExcel() {
+    this.productService.exportProduct().subscribe(
+      (data: any) => {
+        let file = new Blob([data], {
+          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        });
+        let fileUrl = URL.createObjectURL(file);
+        var anchor = document.createElement('a');
+        anchor.download = 'products.xlsx';
+        anchor.href = fileUrl;
+        anchor.click();
+
+        this.openSnackBar('Archivo exportado correctamente', 'Exitosa');
+      },
+      (error: any) => {
+        this.openSnackBar('No se pudo exportar el archivo', 'Error');
+      }
+    );
+  }
+
+  // edit(
+  //   id: number,
+  //   name: string,
+  //   unit_price: number,
+  //   stock: number,
+  //   category: any
+  // ) {}
+
+  delete(id: any) {}
 }
