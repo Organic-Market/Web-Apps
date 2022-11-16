@@ -1,5 +1,4 @@
 export const navbarData=[
-
     {
         routeLink:'dashboard',
         icon:'home',
@@ -16,14 +15,9 @@ export const navbarData=[
         label:'Perfil'
     },
     {
-        routeLink:'ventas',
-        icon:'point_of_sale',
-        label:'Ventas'
-    }, 
-    {
-        routeLink:'comentarios',
-        icon:'mail',
-        label:'Mensajes'
+        routeLink:'pedidos',
+        icon:'reorder-icon',
+        label:'Pedidos'
     },
     {
         routeLink:'/login',

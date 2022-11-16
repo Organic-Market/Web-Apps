@@ -1,9 +1,4 @@
-table {
-    width: 100%;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
+.titulo{
+  padding-left: 20px;
+  padding-top: 10px ;
+}

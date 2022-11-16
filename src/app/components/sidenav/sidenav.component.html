@@ -1,4 +1,4 @@
-<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''" style="width: 250px">
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''">
     <div class="logo-container">
         <button class="logo" (click)="toggleCollapse()" style="margin: 15px;">O</button>
         <div class="logo-text" *ngIf="collapsed">Organic Market</div>
@@ -11,7 +11,7 @@
             <a class="sidenav-nav-link" [routerLink]="data.routeLink"
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact:true}"
-            >
+                >
                 <button mat-icon-button>
                     <mat-icon>{{data.icon}}</mat-icon>
                 </button>

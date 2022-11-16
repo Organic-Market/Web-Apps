@@ -19,6 +19,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { matDialogAnimations, MatDialogModule} from '@angular/material/dialog';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
+
+import {
+  DateAdapter,
+  MatNativeDateModule,
+  MAT_DATE_LOCALE,
+} from '@angular/material/core';
+import { CustomDateAdapter } from './custom-adapter';
+
 
 @NgModule({
   declarations: [],
@@ -41,6 +52,10 @@ import { matDialogAnimations, MatDialogModule} from '@angular/material/dialog';
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatNativeDateModule
 
   ],
   exports:[
@@ -62,9 +77,15 @@ import { matDialogAnimations, MatDialogModule} from '@angular/material/dialog';
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-
-  ]
+    MatDatepickerModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatNativeDateModule
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    { provide: DateAdapter, useClass: CustomDateAdapter },
+  ],
   
-
 })
 export class AngularMaterialModule { }

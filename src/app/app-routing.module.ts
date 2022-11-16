@@ -34,8 +34,7 @@ const routes: Routes = [
       { path: 'dashboard', component:  DashboardComponent},
       { path: 'productos', component:  ListProductComponent},
       { path: 'perfil', component:  EditPerfilComponent},
-      { path: 'ventas', component:  ListSellsComponent},
-
+      { path: 'pedidos', component:  ListSellsComponent}
     ]
   },
 ];
