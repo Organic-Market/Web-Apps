@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+form{
+    margin: 3px;
+    text-align: center;
+}
+
+form > div{
+    display: table-row-group;
+    padding: 10px;
+}
+
+mat-card{
+    width: auto;
+    height: auto;
+}
+
+.input-file {
+    display: none;
+}

@@ -21,4 +21,27 @@ export class CategoryService {
     const endpoint = `${basePath}/categoria/${id}`;
     return this.http.get<Category>(endpoint);
   }
+
+  saveCategorie(body: any) {
+    const endpoint = `${basePath}/categoria`;
+    return this.http.post<Category>(endpoint, body);
+  }
+
+  updateCategorie(body: any, id: any) {
+    const endpoint = `${basePath}/categoria/ ${id}`;
+    return this.http.put<Category>(endpoint, body);
+  }
+
+  deleteCategorie(id: any) {
+    const endpoint = `${basePath}/categoria/ ${id}`;
+    return this.http.delete<Category>(endpoint);
+  }
+
+  exportCategories() {
+    const endpoint = `${basePath}/categoria/export/excel`;
+    return this.http.get(endpoint, {
+      responseType: 'blob',
+    });
+  }
+
 }

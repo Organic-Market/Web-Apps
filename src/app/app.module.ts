@@ -24,6 +24,7 @@ import { ShopComponent } from './components/shop/shop.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ListSellsComponent } from './components/list-sells/list-sells.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NewCategoryComponent } from './components/new-category/new-category.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ShopComponent,
     CheckoutComponent,
     ListSellsComponent,
+    NewCategoryComponent,
 
   
   ],

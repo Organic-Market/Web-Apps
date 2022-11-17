@@ -14,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { ListSellsComponent } from './components/list-sells/list-sells.component';
+import { NewCategoryComponent } from './components/new-category/new-category.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'shop', component:  ShopComponent },
   { path: 'checkout', component:  CheckoutComponent },
   { path: 'add', component: AddEditProductComponent },
+  { path: 'add-category', component: NewCategoryComponent },
   { path: 'edit/:id', component: AddEditProductComponent },
   { path: 'sidenav', component:  SidenavComponent},
   { path: 'gracias', component:  CongratulationsComponent},
