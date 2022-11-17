@@ -7,19 +7,21 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SellService {
-  basePathSell: string = environment.basePathSell;
+  basePath: string = environment.basePath;
 
   constructor(private http: HttpClient) { }
 
   getSell() {
-    return this.http.get<Sell[]>(this.basePathSell);
+    return this.http.get<Sell[]>(this.basePath);
   }
 
   getSellId(id: any) {
-    return this.http.get<Sell>(`${this.basePathSell}/${id}`);
+    return this.http.get<Sell>(`${this.basePath}/${id}`);
   }
 
   addSell(sell: Sell) {
-    return this.http.post<Sell>(this.basePathSell, sell);
+    return this.http.post<Sell>(this.basePath, sell);
   }
+
+  
 }

@@ -74,7 +74,7 @@ export class AddEditProductComponent implements OnInit {
     const uploadImageData = new FormData();
     uploadImageData.append('name', product.name);
     uploadImageData.append('unit_price', product.unit_price.toString());
-    uploadImageData.append('stock', product.stock.toFixed());
+    uploadImageData.append('stock', product.stock.toString());
     uploadImageData.append('categoryId', product.category);
     uploadImageData.append('picture', product.picture, product.picture.name);
 

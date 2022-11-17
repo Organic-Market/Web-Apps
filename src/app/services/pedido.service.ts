@@ -29,5 +29,8 @@ export class PedidoService {
       `${basePath}/pedidos/search/others?username=${username}&fullname=${fullname}`
       );
   }
+  callProcedureOrFunction() {
+    return this.http.get<any[]>(`${basePath}/pedidos/callProcedure`);
+  }
   
 }

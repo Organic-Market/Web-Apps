@@ -25,7 +25,7 @@ export class EditPerfilComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.idUser = this.userService.getIdActaulUser();
+    /* this.idUser = this.userService.getIdActaulUser();
     this.usernameLocal = this.userService.getUsernameActualUser();
     this.userService.getUserAgricultorByUsername(this.usernameLocal).subscribe({
       next: (data) => {
@@ -45,10 +45,10 @@ export class EditPerfilComponent implements OnInit {
       error: (err) => {
         console.log(err);
       },
-    });
+    }); */
   }
 
-  updateUser() {
+  /* updateUser() {
     const user: User = {
       id: this.idUser,
       name: this.myForm.get('name')!.value,
@@ -87,6 +87,6 @@ export class EditPerfilComponent implements OnInit {
       },
     })
   }
-
+ */
 
 }

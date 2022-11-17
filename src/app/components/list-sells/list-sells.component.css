@@ -1,4 +1,22 @@
-.titulo{
-  padding-left: 20px;
-  padding-top: 10px ;
+.list-pedidos, .barras{
+  padding: 10px;
+}
+
+.grafico {
+  text-align: center;
+  margin-top: 4px;
+}
+
+.chartContainer canvas {
+  max-height: 250px;
+  width: auto;
+}
+
+.chartContainer {
+  height: 90%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

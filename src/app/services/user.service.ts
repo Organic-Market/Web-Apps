@@ -24,6 +24,14 @@ export class UserService {
     return this.http.post(`${this.basePath}/agricultor/signin`, login);
   }
 
+  getUserM() {
+    return this.http.get<User>(`${this.basePath}/mayorista`)
+  }
+
+  getUserA() {
+    return this.http.get<User>(`${this.basePath}/agricultor`)
+  }
+
   //listo
   getUserIdM(id: any) {
     return this.http.get<User>(`${this.basePath}/mayorista/${id}`)
@@ -43,13 +51,13 @@ export class UserService {
     return currentUsername;
   }
 
-  getUserAgricultorByUsername(username: string) {
+/*   getUserAgricultorByUsername(username: string) {
     return this.http.get<User>(`${this.basePath}/agricultor/${username}`)
   }
 
   getUserMayoristaByUsername(username: string) {
     return this.http.get<User>(`${this.basePath}/mayorista/${username}`)
-  }
+  } */
 
   setActualIde(id: any): void {
     this.idActualUser = id;
