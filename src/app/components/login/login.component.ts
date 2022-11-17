@@ -1,3 +1,4 @@
+import { Login } from './../../models/login';
 import { environment } from './../../../environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -6,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import { UserStorageService } from 'src/app/services/user-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +22,8 @@ export class LoginComponent implements OnInit {
   auth!: Boolean;
 
   public loginForm!: FormGroup;
+  public model: Login = new Login();
+  public invalid: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,66 +31,77 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private snackBar: MatSnackBar,
+    private userStorageService: UserStorageService
 
   ) { }
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      email: [''],
-      password: ['']
-    })
-  }
 
+  }
 
   login() {
-    this.http.get<any>(`${this.basePath}/mayorista`)
-      .subscribe(res => {
-
-        const user = res.find((a: any) => {
-
-          if (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password) {
-            this.userService.setActualIde(a.id);
-            localStorage.setItem("username",a.username);
-            this.auth = true;
-          }
-          return this.auth
-        });
-        if (user) {
-          this.snackBar.open('Ingresaste', '', {
-            duration: 3000,
-          });
-          this.loginForm.reset();
-          this.router.navigate(['panel']);
-        } else {
-          this.http.get<any>(`${this.basePath}/agricultor`)
-            .subscribe(res => {
-              const user = res.find((a: any) => {
-
-                if (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password) {
-                  this.userService.setActualIde(a.id);
-                  localStorage.setItem("username",a.username);
-                  this.auth = true;
-                }
-                return this.auth
-              });
-              if (user) {
-                this.snackBar.open('Ingresaste', '', {
-                  duration: 3000,
-                });
-                this.loginForm.reset();
-                this.router.navigate(['panel']);
-              }
-              else{
-                this.snackBar.open('Error en credenciales', '', {
-                  duration: 3000,
-                });
-              }
-            })
-        }
-      }, err => {
-        this.snackBar.open('Ingresa tus credenciales', '', {
-          duration: 3000,
-        });
-      })
+    let self = this;
+    this.userService.signInM(this.model).subscribe({
+      next(data: any) {
+        console.log(data);
+        self.userStorageService.set(data);
+        self.router.navigate(['/panel']);
+      },
+      error() {
+        self.invalid = true;
+      },
+    });
 
   }
+  // login() {
+  //   this.http.get<any>(`${this.basePath}/mayorista`)
+  //     .subscribe(res => {
+
+  //       const user = res.find((a: any) => {
+
+  //         if (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password) {
+  //           this.userService.setActualIde(a.id);
+  //           localStorage.setItem("username",a.username);
+  //           this.auth = true;
+  //         }
+  //         return this.auth
+  //       });
+  //       if (user) {
+  //         this.snackBar.open('Ingresaste', '', {
+  //           duration: 3000,
+  //         });
+  //         this.loginForm.reset();
+  //         this.router.navigate(['panel']);
+  //       } else {
+  //         this.http.get<any>(`${this.basePath}/agricultor`)
+  //           .subscribe(res => {
+  //             const user = res.find((a: any) => {
+
+  //               if (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password) {
+  //                 this.userService.setActualIde(a.id);
+  //                 localStorage.setItem("username",a.username);
+  //                 this.auth = true;
+  //               }
+  //               return this.auth
+  //             });
+  //             if (user) {
+  //               this.snackBar.open('Ingresaste', '', {
+  //                 duration: 3000,
+  //               });
+  //               this.loginForm.reset();
+  //               this.router.navigate(['panel']);
+  //             }
+  //             else{
+  //               this.snackBar.open('Error en credenciales', '', {
+  //                 duration: 3000,
+  //               });
+  //             }
+  //           })
+  //       }
+  //     }, err => {
+  //       this.snackBar.open('Ingresa tus credenciales', '', {
+  //         duration: 3000,
+  //       });
+  //     })
+
+  // }
 }

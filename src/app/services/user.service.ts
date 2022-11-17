@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Login } from '../models/login';
 import { User } from '../models/user';
 
 @Injectable({
@@ -14,15 +15,20 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  //listo
-  getUser() {
-    return this.http.get<User[]>(`${this.basePath}/users`)
+  //Listo
+  signInM(login: Login): any {
+    return this.http.post(`${this.basePath}/mayorista/signin`, login);
+  }
+  //Listo
+  signInA(login: Login): any {
+    return this.http.post(`${this.basePath}/agricultor/signin`, login);
   }
 
   //listo
   getUserIdM(id: any) {
     return this.http.get<User>(`${this.basePath}/mayorista/${id}`)
   }
+  //listo
   getUserIdA(id: any) {
     return this.http.get<User>(`${this.basePath}/agricultor/${id}`)
   }
@@ -49,13 +55,6 @@ export class UserService {
     this.idActualUser = id;
   }
 
-  //listo
-  addUser(user: User) {
-    return this.http.post<User>(
-      `${this.basePath}/users`,
-      user
-    );
-  }
   //listo
   addUserM(user: User) {
     return this.http.post<User>(
