@@ -38,70 +38,71 @@ export class LoginComponent implements OnInit {
 
   }
 
-  login() {
-    let self = this;
-    this.userService.signInM(this.model).subscribe({
-      next(data: any) {
-        console.log(data);
-        self.userStorageService.set(data);
-        self.router.navigate(['/panel']);
-      },
-      error() {
-        self.invalid = true;
-      },
-    });
+   login() {
+     let self = this;
+     this.userService.signInM(this.model).subscribe({
+       next(data: any) {
+         console.log(data);
+         self.userStorageService.set(data);
+         self.router.navigate(['/panel']);
+       },
+       error() {
+         self.invalid = true;
+       },
+     });
 
-  }
-  // login() {
-  //   this.http.get<any>(`${this.basePath}/mayorista`)
-  //     .subscribe(res => {
+   }
 
-  //       const user = res.find((a: any) => {
+   /* login() {
+     this.http.get<any>(`${this.basePath}/mayorista`)
+       .subscribe(res => {
 
-  //         if (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password) {
-  //           this.userService.setActualIde(a.id);
-  //           localStorage.setItem("username",a.username);
-  //           this.auth = true;
-  //         }
-  //         return this.auth
-  //       });
-  //       if (user) {
-  //         this.snackBar.open('Ingresaste', '', {
-  //           duration: 3000,
-  //         });
-  //         this.loginForm.reset();
-  //         this.router.navigate(['panel']);
-  //       } else {
-  //         this.http.get<any>(`${this.basePath}/agricultor`)
-  //           .subscribe(res => {
-  //             const user = res.find((a: any) => {
+          const user = res.find((a: any) => {
 
-  //               if (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password) {
-  //                 this.userService.setActualIde(a.id);
-  //                 localStorage.setItem("username",a.username);
-  //                 this.auth = true;
-  //               }
-  //               return this.auth
-  //             });
-  //             if (user) {
-  //               this.snackBar.open('Ingresaste', '', {
-  //                 duration: 3000,
-  //               });
-  //               this.loginForm.reset();
-  //               this.router.navigate(['panel']);
-  //             }
-  //             else{
-  //               this.snackBar.open('Error en credenciales', '', {
-  //                 duration: 3000,
-  //               });
-  //             }
-  //           })
-  //       }
-  //     }, err => {
-  //       this.snackBar.open('Ingresa tus credenciales', '', {
-  //         duration: 3000,
-  //       });
-  //     })
+           if (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password) {
+             this.userService.setActualIde(a.id);
+             localStorage.setItem("username",a.username);
+             this.auth = true;
+           }
+           return this.auth
+          });
+         if (user) {
+           this.snackBar.open('Ingresaste', '', {
+             duration: 3000,
+           });
+           this.loginForm.reset();
+           this.router.navigate(['panel']);
+         } else {
+           this.http.get<any>(`${this.basePath}/agricultor`)
+             .subscribe(res => {
+               const user = res.find((a: any) => {
 
-  // }
+                 if (a.email === this.loginForm.value.email && a.password === this.loginForm.value.password) {
+                   this.userService.setActualIde(a.id);
+                   localStorage.setItem("username",a.username);
+                   this.auth = true;
+                 }
+                 return this.auth
+               });
+               if (user) {
+                 this.snackBar.open('Ingresaste', '', {
+                   duration: 3000,
+                 });
+                 this.loginForm.reset();
+                 this.router.navigate(['panel']);
+               }
+               else{
+                 this.snackBar.open('Error en credenciales', '', {
+                   duration: 3000,
+                 });
+              }
+             })
+         }
+       }, err => {
+         this.snackBar.open('Ingresa tus credenciales', '', {
+           duration: 3000,
+        });
+       })
+
+   } */
 }

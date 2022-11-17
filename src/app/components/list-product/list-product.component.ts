@@ -21,7 +21,7 @@ export class ListProductComponent implements OnInit {
     'name',
     'unit_price',
     'stock',
-    'category',
+    //'category',
     'picture', 
     'actions',
   ];
@@ -38,7 +38,7 @@ export class ListProductComponent implements OnInit {
       ) {}
 
   ngOnInit(): void {
-    this.getProduct();
+    this.getProducts();
   }
   
   openDialog(){
@@ -49,8 +49,8 @@ export class ListProductComponent implements OnInit {
     });
   }
 
-  getProduct() {
-    this.productService.getProduct().subscribe(
+  getProducts() {
+    this.productService.getProducts().subscribe(
       (data) => {
         console.log('respuesta de productos: ', data);
         this.processProductResponse(data);
@@ -82,21 +82,27 @@ export class ListProductComponent implements OnInit {
     this.productService.setActualProductId(idActualProduct);
     const dialogRef = this.dialog.open(EditProductComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.getProduct();
+      this.getProducts();
       console.log(`Dialog result: ${result}`);
     });
   }
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  filterProductByName(name: any) {
+    if (name.length === 0) {
+      return this.getProducts();
+    }
+
+    this.productService.getProductByName(name).subscribe((resp: any) => {
+      this.processProductResponse(resp);
+    });
   }
 
-  getProducts() {
-    this.productService.getProduct().subscribe((data: Product[]) => {
+  /* getProducts() {
+    this.productService.getProducts().subscribe((data: Product[]) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
-  }
+  }  */
 
   deleteProduct(id: number) {
     this.productService.deleteProduct(id).subscribe(() => {
@@ -144,5 +150,4 @@ export class ListProductComponent implements OnInit {
   //   category: any
   // ) {}
 
-  delete(id: any) {}
 }

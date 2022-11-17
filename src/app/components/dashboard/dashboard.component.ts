@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getProducts() {
-    this.productService.getProduct().subscribe({
+    this.productService.getProducts().subscribe({
       next: (data) => {
         this.processProductResponse(data);
       },

@@ -15,21 +15,48 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
   //listo
-  getProduct() {
+  getProducts() {
     const endpoint = `${basePath}/products`;
     return this.http.get<Product[]>(endpoint);
   }
-
-  //listo
-  getProductId(id: any) {
-    return this.http.get<Product>(`${basePath}/products/${id}`);
+ 
+  exportProduct() {
+    const endpoint = `${basePath}/products/export/excel`;
+    return this.http.get(endpoint, {
+      responseType: 'blob',
+    });
   }
-  
+
+  getProductByName(name: any) {
+    const endpoint = `${basePath}/products/filter/${name}`;
+    return this.http.get<Product>(endpoint);
+  }
+
   //listo
   saveProduct(product: any) {
     const endpoint = `${basePath}/products`;
     return this.http.post<Product[]>(endpoint, product);
   }
+
+  
+  //listo
+  updateProduct(id: any, product: Product) {
+    return this.http.put<Product>(`${basePath}/products/${id}`, product);
+  }
+
+  //listo
+  deleteProduct(id: any) {
+    return this.http.delete<Product>(`${basePath}/products/${id}`);
+  }
+
+
+
+
+
+  getProductId(id: any) {
+    return this.http.get<Product>(`${basePath}/products/${id}`);
+  }
+  
 
   setActualProductId(id:any):void{
     this.idActualProduct=id;
@@ -43,15 +70,6 @@ export class ProductService {
     return this.http.get<Product[]>(this.basePathInCar);
   }
       
-  //listo
-  updateProduct(id: any, product: Product) {
-    return this.http.put<Product>(`${basePath}/products/${id}`, product);
-  }
-
-  //listo
-  deleteProduct(id: any) {
-    return this.http.delete<Product>(`${basePath}/products/${id}`);
-  }
 
   addProductInCar(productInCar: Product) {
     return this.http.post<Product>(this.basePathInCar, productInCar);
@@ -69,11 +87,5 @@ export class ProductService {
   //   return this.http.get<any>(`${basePath}/categoria`);
   // }
 
-  exportProduct() {
-    const endpoint = `${basePath}/products/export/excel`;
-    return this.http.get(endpoint, {
-      responseType: 'blob',
-    });
-  }
 
 }

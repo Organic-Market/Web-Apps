@@ -21,7 +21,7 @@ export class ShopComponent implements OnInit {
   }
 
   getProducts() {
-    this.productService.getProduct().subscribe((data: Product[]) => {
+    this.productService.getProducts().subscribe((data: Product[]) => {
       this.dataSource= data;
     });
   }
