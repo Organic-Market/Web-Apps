@@ -1,5 +1,5 @@
-import { Login } from './../../models/login';
-import { environment } from './../../../environments/environment';
+import { Login } from '../../../models/login';
+import { environment } from '../../../../environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';

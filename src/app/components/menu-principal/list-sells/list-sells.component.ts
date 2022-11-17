@@ -14,7 +14,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./list-sells.component.css']
 })
 export class ListSellsComponent implements OnInit {
-  displayedColumns = ['mayorista', 'date'];
+  displayedColumns = ['usuario', 'date'];
   dataSource: MatTableDataSource<Pedido>;
 
   maxEnd: Date = new Date();

@@ -1,5 +1,5 @@
 import { UserService } from 'src/app/services/user.service';
-import { User } from './../../models/user';
+import { User } from '../../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';

@@ -1,4 +1,4 @@
-import { CategoryService } from './../../services/category.service';
+import { CategoryService } from '../../../services/category.service';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { AddEditProductComponent } from '../add-edit-product/add-edit-product.component';
 import { EditProductComponent } from '../edit-product/edit-product.component';
-import { ProductService } from './../../services/product.service';
+import { ProductService } from '../../../services/product.service';
 import { Category } from 'src/app/models/category';
 import { NewCategoryComponent } from '../new-category/new-category.component';
 

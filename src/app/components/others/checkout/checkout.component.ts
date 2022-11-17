@@ -1,6 +1,6 @@
 import { ProductService } from 'src/app/services/product.service';
-import { SellService } from './../../services/sell.service';
-import { Sell } from './../../models/sells';
+import { SellService } from '../../../services/sell.service';
+import { Sell } from '../../../models/sells';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';

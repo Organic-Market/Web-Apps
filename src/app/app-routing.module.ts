@@ -1,20 +1,20 @@
-import { CongratulationsComponent } from './components/congratulations/congratulations.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
-import { ListProductComponent } from './components/list-product/list-product.component';
-import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
-import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
-import { PanelComponent } from './components/panel/panel.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
+import { CongratulationsComponent } from './components/others/congratulations/congratulations.component';
+import { CheckoutComponent } from './components/others/checkout/checkout.component';
+import { ListProductComponent } from './components/product/list-product/list-product.component';
+import { EditPerfilComponent } from './components/user/edit-perfil/edit-perfil.component';
+import { AddEditProductComponent } from './components/product/add-edit-product/add-edit-product.component';
+import { PanelComponent } from './components/menu-principal/panel/panel.component';
+import { SidenavComponent } from './components/menu-principal/sidenav/sidenav.component';
+import { DashboardComponent } from './components/menu-principal/dashboard/dashboard.component';
+import { RegisterComponent } from './components/user/register/register.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { HomeComponent } from './components/principal/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './components/cart/cart.component';
-import { ShopComponent } from './components/shop/shop.component';
-import { ListSellsComponent } from './components/list-sells/list-sells.component';
-import { NewCategoryComponent } from './components/new-category/new-category.component';
+import { CartComponent } from './components/others/cart/cart.component';
+import { ShopComponent } from './components/others/shop/shop.component';
+import { ListSellsComponent } from './components/menu-principal/list-sells/list-sells.component';
+import { NewCategoryComponent } from './components/product/new-category/new-category.component';
 
 
 const routes: Routes = [

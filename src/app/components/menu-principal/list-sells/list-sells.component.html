@@ -3,7 +3,7 @@
     <h2 class="titulo">Listado de Pedidos</h2>
     <form [formGroup]="form" (submit)="search()" style="padding-left: 20px;">
       <mat-tab-group #tab>
-        <mat-tab label="Buscar por mayorista">
+        <mat-tab label="Buscar por usuario">
           <div>
             <mat-form-field style="padding-top: 10px;">
               <input matInput placeholder="Username" formControlName="username" />
@@ -69,8 +69,8 @@
       </button> -->
   
       <mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="mayorista">
-          <mat-header-cell *matHeaderCellDef> Mayorista </mat-header-cell>
+        <ng-container matColumnDef="usuario">
+          <mat-header-cell *matHeaderCellDef> Usuario </mat-header-cell>
           <mat-cell *matCellDef="let row">
             {{ row.user.firstName | uppercase }}
             {{ row.user.lastName | lowercase }}</mat-cell
