@@ -84,7 +84,7 @@ export class AddEditProductComponent implements OnInit {
         this.snackBar.open('El producto fue registrado con exito!', '', {
           duration: 3000,
         });
-        this.router.navigate(['/productos']);
+        this.router.navigate(['panel/productos']);
       },
       error: (err) => {
         console.log(err);
