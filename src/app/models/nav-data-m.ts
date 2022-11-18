@@ -1,18 +1,13 @@
 export const navbarData=[
     {
-        routeLink:'dashboard',
+        routeLink:'dashboard-m',
         icon:'assessment',
         label:'Dashboard'
     },
     {
-        routeLink:'productos',
-        icon:'agriculture',
-        label:'Productos'
-    },
-    {
-        routeLink:'categorias',
-        icon:'category',
-        label:'Categorias'
+        routeLink:'pedidos',
+        icon:'reorder-icon',
+        label:'Pedidos'
     },
     {
         routeLink:'perfil',

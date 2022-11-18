@@ -10,8 +10,6 @@ import { Product } from 'src/app/models/product';
 import { AddEditProductComponent } from '../add-edit-product/add-edit-product.component';
 import { EditProductComponent } from '../edit-product/edit-product.component';
 import { ProductService } from '../../../services/product.service';
-import { Category } from 'src/app/models/category';
-import { NewCategoryComponent } from '../new-category/new-category.component';
 
 @Component({
   selector: 'app-list-product',
@@ -29,14 +27,7 @@ export class ListProductComponent implements OnInit {
     'actions',
   ];
 
-  displayedColumns1: string[] = [
-    'id', 
-    'name',
-    'actions'
-  ];
-
   dataSource = new MatTableDataSource<Product>();
-  dataSourceC = new MatTableDataSource<Category>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -51,73 +42,7 @@ export class ListProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
-    this.getCategories();
   }
-  
-  //Categorias
-  getCategories() {
-    this.categoryService.getCategories().subscribe({
-      next: (data) => {
-        this.dataSourceC = new MatTableDataSource(data);
-        this.dataSourceC.paginator = this.paginator;
-        console.log('respuesta de categorias: ', data);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  }
-  
-  filterCategory(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSourceC.filter = filterValue.trim().toLowerCase();
-  }
-  
-  openSnackBar1(
-    message: string,
-    action: string
-  ): MatSnackBarRef<SimpleSnackBar> {
-    return this.snackBar.open(message, action, {
-      duration: 2000,
-    });
-  }
-
-  deleteCategory(id: number) {
-    this.categoryService.deleteCategorie(id).subscribe(() => {
-      this.dataSourceC.data = this.dataSourceC.data.filter((e: Category) => {
-        return e.id !== id ? e : false;
-      });
-    });
-  }
-
-  exportExcelC() {
-    this.categoryService.exportCategories().subscribe(
-      (data: any) => {
-        let file = new Blob([data], {
-          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-        });
-        let fileUrl = URL.createObjectURL(file);
-        var anchor = document.createElement('a');
-        anchor.download = 'Categorias.xlsx';
-        anchor.href = fileUrl;
-        anchor.click();
-
-        this.openSnackBar('Archivo exportado correctamente', 'Exitosa');
-      },
-      (error: any) => {
-        this.openSnackBar('No se pudo exportar el archivo', 'Error');
-      }
-    );
-  }
-  openDialog1(){
-    const dialogRef = this.dialog.open(NewCategoryComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  //Categorias
   
   //Productos
   openDialog(){
@@ -166,14 +91,9 @@ export class ListProductComponent implements OnInit {
     });
   }
 
-  filterProductByName(name: any) {
-    if (name.length === 0) {
-      return this.getProducts();
-    }
-
-    this.productService.getProductByName(name).subscribe((resp: any) => {
-      this.processProductResponse(resp);
-    });
+  filterProduct(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   /* getProducts() {

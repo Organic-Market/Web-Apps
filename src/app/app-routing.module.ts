@@ -1,3 +1,4 @@
+import { ListCategoryComponent } from './components/product/list-category/list-category.component';
 import { CongratulationsComponent } from './components/others/congratulations/congratulations.component';
 import { CheckoutComponent } from './components/others/checkout/checkout.component';
 import { ListProductComponent } from './components/product/list-product/list-product.component';
@@ -18,6 +19,9 @@ import { NewCategoryComponent } from './components/product/new-category/new-cate
 import { RequestLoginComponent } from './components/user/request-login/request-login.component';
 import { LoginAgricultorComponent } from './components/user/login-agricultor/login-agricultor.component';
 import { LoginMayoristaComponent } from './components/user/login-mayorista/login-mayorista.component';
+import { PanelMComponent } from './components/menu-principal/panel-m/panel-m.component';
+import { DashboardMComponent } from './components/menu-principal/dashboard-m/dashboard-m.component';
+import { SidenavMComponent } from './components/menu-principal/sidenav-m/sidenav-m.component';
 
 
 const routes: Routes = [
@@ -32,6 +36,7 @@ const routes: Routes = [
   { path: 'add-category', component: NewCategoryComponent },
   { path: 'edit/:id', component: AddEditProductComponent },
   { path: 'sidenav', component:  SidenavComponent},
+  { path: 'sidenav-m', component:  SidenavMComponent},
   { path: 'gracias', component:  CongratulationsComponent},
   { path: 'request-login', component:  RequestLoginComponent},
   { path: 'login-agricultor', component:  LoginAgricultorComponent},
@@ -41,6 +46,14 @@ const routes: Routes = [
       { path: '', redirectTo:'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component:  DashboardComponent},
       { path: 'productos', component:  ListProductComponent},
+      { path: 'categorias', component:  ListCategoryComponent},
+      { path: 'perfil', component:  EditPerfilComponent},
+    ]
+  },
+  { path: 'panel-m', component:  PanelMComponent,
+    children:[
+      { path: '', redirectTo:'dashboard-m', pathMatch: 'full' },
+      { path: 'dashboard-m', component:  DashboardMComponent},
       { path: 'perfil', component:  EditPerfilComponent},
       { path: 'pedidos', component:  ListSellsComponent}
     ]

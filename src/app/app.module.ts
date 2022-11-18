@@ -28,6 +28,11 @@ import { NewCategoryComponent } from './components/product/new-category/new-cate
 import { LoginAgricultorComponent } from './components/user/login-agricultor/login-agricultor.component';
 import { LoginMayoristaComponent } from './components/user/login-mayorista/login-mayorista.component';
 import { RequestLoginComponent } from './components/user/request-login/request-login.component';
+import { BodyMComponent } from './components/menu-principal/body-m/body-m.component';
+import { DashboardMComponent } from './components/menu-principal/dashboard-m/dashboard-m.component';
+import { PanelMComponent } from './components/menu-principal/panel-m/panel-m.component';
+import { SidenavMComponent } from './components/menu-principal/sidenav-m/sidenav-m.component';
+import { ListCategoryComponent } from './components/product/list-category/list-category.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +58,11 @@ import { RequestLoginComponent } from './components/user/request-login/request-l
     LoginAgricultorComponent,
     LoginMayoristaComponent,
     RequestLoginComponent,
+    BodyMComponent,
+    DashboardMComponent,
+    PanelMComponent,
+    SidenavMComponent,
+    ListCategoryComponent,
 
   
   ],
