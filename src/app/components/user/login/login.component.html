@@ -4,7 +4,7 @@
         <h2>Bienvenido</h2>
         <p>No tienes una cuenta? <a routerLink="/register">Crea una ahora!</a></p>
         
-        <form [formGroup]="loginForm" (ngSubmit)="login1()" or (ngSubmit)="login2()" class="formulario-inputs">
+        <form [formGroup]="loginForm" (ngSubmit)="login1()" class="formulario-inputs">
             <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
                 <input formControlName="email" matInput>

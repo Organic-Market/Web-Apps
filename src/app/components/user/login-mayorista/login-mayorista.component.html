@@ -1,1 +1,43 @@
-<p>login-mayorista works!</p>
+<div class="contenedor">
+  <div class="formulario">
+      <a href="/">
+          <img src="/assets/img/logo.png" alt="">
+      </a>
+      <h2>Bienvenido Mayorista</h2>
+      <p>No tienes una cuenta? <a routerLink="/register">Crea una ahora!</a></p>
+      
+      <form (ngSubmit)="onSubmit()" class="formulario-inputs">
+          <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input required
+              name="email"
+              type="text"
+              placeholder="admin@upc.pe"
+              class="input"
+              [(ngModel)]="model.email"
+              #email="ngModel" matInput>
+                              
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input  input
+              required
+              name="password"
+              type="password"
+              placeholder="123456"
+              class="input"
+              [(ngModel)]="model.password"
+              #password="ngModel" matInput>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide?'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+          </mat-form-field>
+
+          <div *ngIf="invalid" class="mensaje">
+              Las credenciales ingresadas son inválidas.
+          </div>
+          <button  mat-button mat-raised-button color="primary"><mat-icon class="icon-button">person</mat-icon>Ingresar</button>
+          <button  mat-button mat-raised-button color="primary" routerLink="/request-login" style="margin-top: 10px;"><mat-icon class="icon-button">cancel</mat-icon>Regresar</button>
+      </form>
+  </div>
+</div>

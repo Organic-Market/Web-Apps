@@ -9,7 +9,7 @@ import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/others/cart/cart.component';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { AddEditProductComponent } from './components/product/add-edit-product/add-edit-product.component';
@@ -64,7 +64,7 @@ import { RequestLoginComponent } from './components/user/request-login/request-l
     HttpClientModule,
     ReactiveFormsModule,
     MatSidenavModule,
-
+    FormsModule
 
     
   ],
