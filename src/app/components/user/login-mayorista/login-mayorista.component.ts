@@ -40,7 +40,7 @@ export class LoginMayoristaComponent implements OnInit {
       next(data: any) {
         console.log(data);
         self.userStorageService.set(data);
-        self.router.navigate(['/panel']);
+        self.router.navigate(['/panel-m']);
       },
       error() {
         self.invalid = true;

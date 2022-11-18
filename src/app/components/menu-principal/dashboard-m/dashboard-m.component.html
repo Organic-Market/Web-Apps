@@ -19,7 +19,16 @@
           
           <mat-card-content class="dashboard-card-content">
             <mat-card-title>Reportes</mat-card-title>
-            
+            <div class="barras">
+                <div class="grafico">                
+                  <!-- chart bar-->
+                  <div class="chartContainer">
+                    <canvas id="canvas-bar" width="400" height="400">
+                      {{ chart }}
+                    </canvas>
+                  </div>
+                </div>
+            </div>
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>
