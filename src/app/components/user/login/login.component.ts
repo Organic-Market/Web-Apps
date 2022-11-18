@@ -3,7 +3,7 @@ import { environment } from '../../../../environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   basePath: string = environment.basePath;
   actualUser!: User;
   auth!: Boolean;
+  myForm!: FormGroup;
 
   public loginForm!: FormGroup;
   public model: Login = new Login();
@@ -33,25 +34,57 @@ export class LoginComponent implements OnInit {
     private snackBar: MatSnackBar,
     private userStorageService: UserStorageService
 
-  ) { }
+  ) {
+   }
   ngOnInit(): void {
+    this.loginForm=this.formBuilder.group({
+      email:[''],
+      password:['']
+    })
+  }
+  
 
+  login1() {
+    let self = this;
+    this.userService.signInM(this.model).subscribe({
+      next(data: any) {
+        console.log(data);
+        self.userStorageService.set(data);
+        this.snackBar.open('Ingresaste', '', {
+          duration: 3000,
+        });
+        this.loginForm.reset();
+        this.router.navigate(['panel']);
+      },
+      error() {
+        self.invalid = true;
+        this.snackBar.open('Error en credenciales', '', {
+        duration: 3000,
+        });
+      },
+    });
   }
 
-   login() {
-     let self = this;
-     this.userService.signInM(this.model).subscribe({
-       next(data: any) {
-         console.log(data);
-         self.userStorageService.set(data);
-         self.router.navigate(['/panel']);
-       },
-       error() {
-         self.invalid = true;
-       },
-     });
-
-   }
+  login2() {
+    let self = this;
+    this.userService.signInA(this.model).subscribe({
+      next(data: any) {
+        console.log(data);
+        self.userStorageService.set(data);
+        this.snackBar.open('Ingresaste', '', {
+          duration: 3000,
+        });
+        this.loginForm.reset();
+        this.router.navigate(['panel']);
+     },
+     error() {
+       self.invalid = true;
+       this.snackBar.open('Error en credenciales', '', {
+        duration: 3000,
+      });
+     },
+    });
+  }
 
    /* login() {
      this.http.get<any>(`${this.basePath}/mayorista`)
@@ -72,7 +105,7 @@ export class LoginComponent implements OnInit {
            });
            this.loginForm.reset();
            this.router.navigate(['panel']);
-         } else {
+          } else {
            this.http.get<any>(`${this.basePath}/agricultor`)
              .subscribe(res => {
                const user = res.find((a: any) => {
@@ -97,7 +130,7 @@ export class LoginComponent implements OnInit {
                  });
               }
              })
-         }
+          }
        }, err => {
          this.snackBar.open('Ingresa tus credenciales', '', {
            duration: 3000,

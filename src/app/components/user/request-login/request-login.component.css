@@ -1,3 +1,4 @@
+
 .contenedor{
     width: 80%;
     height: 90vh;
@@ -7,10 +8,10 @@
     align-items: center;
 }
 
-.formulario{
+.opciones{
     width: 80%;
     max-width: 500px;
-    max-height: 600px;
+    height: 500px;
     border-radius: 6px;
     background: #ffffff;
     box-shadow:  11px 11px 22px #e3e3e3,
@@ -23,35 +24,22 @@
 
 }
 
-.formulario img{
+.opciones img{
     width: 100px;
     height: 100px;
 }
-.formulario a{
+.opciones a{
     text-decoration: none;
     color: rgb(38, 56, 222);
     font-weight: 500;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-}
-.part-form{
-    display: grid;
-    grid-template-columns: 47% 50%;
-    gap: 15px;
+button{
+    width: 80%;
+    height: 80%;
+    max-width: 500px;
+    max-height: 500px;
+    align-items: center;
+    text-align: center;
 }
 
-.example-section {
-    margin: 12px 0;
-  }
-  
-  .example-margin {
-    margin: 0 1px;
-  }
-  
-  ul {
-    list-style-type: none;
-    margin-top: 4px;
-  }

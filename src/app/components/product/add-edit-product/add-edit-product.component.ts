@@ -67,7 +67,7 @@ export class AddEditProductComponent implements OnInit {
       name: this.myForm.get('name')?.value,
       unit_price: this.myForm.get('unit_price')?.value,
       stock: this.myForm.get('stock')?.value,
-      category: this.myForm.get('category')?.value,
+      categoriaProducto: this.myForm.get('category')?.value,
       picture: this.selectedFile,
     };
 
@@ -75,7 +75,7 @@ export class AddEditProductComponent implements OnInit {
     uploadImageData.append('name', product.name);
     uploadImageData.append('unit_price', product.unit_price.toString());
     uploadImageData.append('cantidad', product.stock.toString());
-    uploadImageData.append('categoryId', product.category);
+    uploadImageData.append('categoryId', product.categoriaProducto);
     uploadImageData.append('picture', product.picture, product.picture.name);
 
     //TODO: llamado a metodo service registro producto

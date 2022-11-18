@@ -3,6 +3,6 @@ export class Product {
     name: string;
     unit_price: number;
     stock: number;
-    category: any;
+    categoriaProducto: any;
     picture: any;
   }

@@ -8,8 +8,6 @@ export const environment = {
   basePathProducts:'http://localhost:8080/api',
   basePathProductInCar:'http://localhost:8080/api',
 
-
-
 };
 
 /*

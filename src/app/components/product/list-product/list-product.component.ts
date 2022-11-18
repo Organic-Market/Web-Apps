@@ -24,7 +24,7 @@ export class ListProductComponent implements OnInit {
     'name',
     'unit_price',
     'stock',
-    //'category',
+    'category',
     'picture', 
     'actions',
   ];

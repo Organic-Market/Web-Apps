@@ -20,7 +20,7 @@ export const navbarData=[
         label:'Pedidos'
     },
     {
-        routeLink:'/login',
+        routeLink:'/',
         icon:'logout',
         label:'Salir'
     }

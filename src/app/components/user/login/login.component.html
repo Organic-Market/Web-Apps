@@ -4,12 +4,11 @@
         <h2>Bienvenido</h2>
         <p>No tienes una cuenta? <a routerLink="/register">Crea una ahora!</a></p>
         
-        <form [formGroup]="loginForm" (ngSubmit)="login()" class="formulario-inputs">
+        <form [formGroup]="loginForm" (ngSubmit)="login1()" or (ngSubmit)="login2()" class="formulario-inputs">
             <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
                 <input formControlName="email" matInput>
             </mat-form-field>
-
             <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
                 <input  formControlName="password" matInput [type]="hide ? 'password' : 'text'">
@@ -19,6 +18,7 @@
             </mat-form-field>
 
             <button  mat-button mat-raised-button color="primary"><mat-icon class="icon-button">person</mat-icon>Ingresar</button>
+            <button  mat-button mat-raised-button color="primary" routerLink="/" style="margin-top: 10px;"><mat-icon class="icon-button">cancel</mat-icon>Regresar</button>
         </form>
     </div>
 </div>

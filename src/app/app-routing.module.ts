@@ -15,6 +15,9 @@ import { CartComponent } from './components/others/cart/cart.component';
 import { ShopComponent } from './components/others/shop/shop.component';
 import { ListSellsComponent } from './components/menu-principal/list-sells/list-sells.component';
 import { NewCategoryComponent } from './components/product/new-category/new-category.component';
+import { RequestLoginComponent } from './components/user/request-login/request-login.component';
+import { LoginAgricultorComponent } from './components/user/login-agricultor/login-agricultor.component';
+import { LoginMayoristaComponent } from './components/user/login-mayorista/login-mayorista.component';
 
 
 const routes: Routes = [
@@ -30,6 +33,9 @@ const routes: Routes = [
   { path: 'edit/:id', component: AddEditProductComponent },
   { path: 'sidenav', component:  SidenavComponent},
   { path: 'gracias', component:  CongratulationsComponent},
+  { path: 'request-login', component:  RequestLoginComponent},
+  { path: 'login-agricultor', component:  LoginAgricultorComponent},
+  { path: 'login-mayorista', component:  LoginMayoristaComponent},
   { path: 'panel', component:  PanelComponent,
     children:[
       { path: '', redirectTo:'dashboard', pathMatch: 'full' },

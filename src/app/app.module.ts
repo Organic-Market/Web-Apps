@@ -16,7 +16,7 @@ import { AddEditProductComponent } from './components/product/add-edit-product/a
 import { ListProductComponent } from './components/product/list-product/list-product.component';
 import { EditProductComponent } from './components/product/edit-product/edit-product.component';
 import { SidenavComponent } from './components/menu-principal/sidenav/sidenav.component';
-import { BodyComponent } from './components/principal/body/body.component';
+import { BodyComponent } from './components/menu-principal/body/body.component';
 import { PanelComponent } from './components/menu-principal/panel/panel.component';
 import { EditPerfilComponent } from './components/user/edit-perfil/edit-perfil.component';
 import { CongratulationsComponent } from './components/others/congratulations/congratulations.component';
@@ -25,6 +25,9 @@ import { CheckoutComponent } from './components/others/checkout/checkout.compone
 import { ListSellsComponent } from './components/menu-principal/list-sells/list-sells.component';
 import { DashboardComponent } from './components/menu-principal/dashboard/dashboard.component';
 import { NewCategoryComponent } from './components/product/new-category/new-category.component';
+import { LoginAgricultorComponent } from './components/user/login-agricultor/login-agricultor.component';
+import { LoginMayoristaComponent } from './components/user/login-mayorista/login-mayorista.component';
+import { RequestLoginComponent } from './components/user/request-login/request-login.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { NewCategoryComponent } from './components/product/new-category/new-cate
     CheckoutComponent,
     ListSellsComponent,
     NewCategoryComponent,
+    LoginAgricultorComponent,
+    LoginMayoristaComponent,
+    RequestLoginComponent,
 
   
   ],
