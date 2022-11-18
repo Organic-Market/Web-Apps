@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Chart, registerables } from 'chart.js';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -7,6 +8,11 @@ import { PedidoService } from 'src/app/services/pedido.service';
 import * as moment from 'moment';
 import { MatTabGroup } from '@angular/material/tabs';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/user';
+import { PedidoDetail } from 'src/app/models/pedidoDetail';
+import { Product } from 'src/app/models/product';
+import { SessionUser } from 'src/app/models/session-user';
 
 @Component({
   selector: 'app-list-sells',
@@ -17,13 +23,26 @@ export class ListSellsComponent implements OnInit {
   displayedColumns = ['usuario', 'date'];
   dataSource: MatTableDataSource<Pedido>;
 
+  mayorista: SessionUser[];
+
+  producto: Product[] = [];
+  idMayoristaSelected: number;
+
+  details: PedidoDetail[]=[];
+  quantity: string;
+  dateSelected: Date;
+
   maxEnd: Date = new Date();
   form: FormGroup;
   @ViewChild('tab') tabGroup: MatTabGroup;
 
   chart:any; 
 
-  constructor(private pedidoService: PedidoService) {
+  constructor(
+    private pedidoService: PedidoService,
+    private userService: UserService,
+    private snackBar: MatSnackBar
+    ) {
     Chart.register(...registerables);
   }
 
@@ -35,7 +54,68 @@ export class ListSellsComponent implements OnInit {
       endDate: new FormControl(),
     });
     this.draw();
+    this.getMayoristas();
   }
+
+  getMayoristas() {
+    this.userService.getUserM().subscribe(
+      (data: any) => {
+        this.mayorista = data;
+      },
+      (error: any) => {
+        console.log('error al consultar pacientes');
+      }
+    );
+  }
+
+  addDetail() {
+    let det = new PedidoDetail();
+    det.quantity = this.quantity;
+
+    this.details.push(det);
+  }
+
+  removeDetail(index: number) {
+    this.details.splice(index, 1);
+  }
+
+  savePedido() {
+    let mayorista = new SessionUser();
+    mayorista.id = this.idMayoristaSelected;
+
+    console.log('mayorista:', mayorista.id);
+
+    let pedido = new Pedido();
+    pedido.mayorista = mayorista;
+    pedido.producto = this.producto;
+    pedido.details = this.details;
+
+    console.log(this.details);
+
+    pedido.date = moment(this.dateSelected).format(
+      'YYYY-MM-DDTHH:mm:ss'
+    );
+
+    this.pedidoService.savePedido(pedido).subscribe(() => {
+      this.snackBar.open('Registro de consulta OK', 'INFO', { duration: 2000 });
+
+      setTimeout(() => {
+        this.cleanControls();
+      }, 2000);
+    });
+  }
+
+  cleanControls() {
+    this.idMayoristaSelected = 0;
+    this.dateSelected = new Date();
+    this.details = [];
+  }
+  
+
+
+
+
+
 
   search() {
     if (this.tabGroup.selectedIndex == 0) {

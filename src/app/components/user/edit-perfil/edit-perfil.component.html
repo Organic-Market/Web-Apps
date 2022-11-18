@@ -3,9 +3,8 @@
     <div class="container-perfil">
         <div class="header-perfil">
             <img src="/assets/img/perfil1.png" alt="">
-            <h1>{{user.name}}</h1>
-            <h3>{{user}}</h3>
         </div>
+        <h1>{{ user.name }}</h1>
     
         <div class="body-perfil">
             <form [formGroup]="myForm" *ngIf="myForm" autocomplete="off">
