@@ -10,11 +10,6 @@ export const navbarData=[
         label:'Pedidos'
     },
     {
-        routeLink:'perfil',
-        icon:'person',
-        label:'Perfil'
-    },
-    {
         routeLink:'/',
         icon:'logout',
         label:'Salir'

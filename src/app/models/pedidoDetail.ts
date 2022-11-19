@@ -1,5 +1,6 @@
-import { Product } from "./product";
+import { Product } from './product';
 
 export class PedidoDetail{
     quantity: any;
+    producto: any;
 }

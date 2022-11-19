@@ -22,6 +22,7 @@ import { matDialogAnimations, MatDialogModule} from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
 
 import {
   DateAdapter,
@@ -55,7 +56,8 @@ import { CustomDateAdapter } from './custom-adapter';
     MatDatepickerModule,
     MatTabsModule,
     MatExpansionModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatListModule
 
   ],
   exports:[
@@ -80,7 +82,8 @@ import { CustomDateAdapter } from './custom-adapter';
     MatDatepickerModule,
     MatTabsModule,
     MatExpansionModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatListModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },

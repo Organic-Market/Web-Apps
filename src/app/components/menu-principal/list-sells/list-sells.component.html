@@ -1,3 +1,81 @@
+<!--  Nuevo Pedido-->
+<div>
+  <mat-card clas= "dashboard-card">
+    <h2 class="alinear">Registro de Pedido</h2>
+    <div class="pedido-container">
+      <div>
+          <mat-form-field style="margin: 10px;" >
+            <mat-label>Mayorista</mat-label>
+            <mat-select placeholder="Select Mayorista" [(ngModel)]="idMayoristaSelected">
+              <mat-option *ngFor="let m of mayorista" [value]="m.id">
+                {{ m.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <mat-form-field style="margin: 10px;">
+            <mat-label>Productos</mat-label>
+            <mat-select placeholder="Selecciona un Producto" [(ngModel)]="idProductoSelected">
+              <mat-option *ngFor="let p of producto" [value]="p.id">
+                {{ p.name }} - S/.{{p.unit_price}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    
+          <mat-form-field style="margin: 10px;">
+            <input matInput placeholder="Cantidad" [(ngModel)]="quantity" />
+          </mat-form-field>  
+          <button mat-raised-button color="primary" (click)="addDetail()">
+            Agregar detalle
+          </button>
+      </div>  
+      <div class="botones" style=>
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          style="margin: 10px;"
+          (click)="savePedido()"
+        >
+          Aceptar
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          routerLink="/panel-m/pedidos"
+        >
+          Cancelar
+        </button>
+      </div>
+      <div>
+        <mat-expansion-panel *ngFor="let det of details; let i = index;">
+          <mat-expansion-panel-header>
+            <mat-panel-title> Detalle {{ i + 1 }}  </mat-panel-title>
+            <mat-panel-description> {{ det.quantity }}</mat-panel-description>
+          </mat-expansion-panel-header>
+    
+          <!-- <mat-form-field>
+            <textarea
+              matInput
+              placeholder="Treatment"
+              value="{{ det.treatment }}"
+            ></textarea>
+          </mat-form-field> -->
+    
+          <button mat-raised-button color="warn" (click)="removeDetail(i)">
+            Eliminar
+          </button>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+
+
+
+<!-- 
 <div class="list-pedidos">
   <mat-card>
     <h2 class="titulo">Listado de Pedidos</h2>
@@ -51,7 +129,7 @@
       <div>
         <button mat-raised-button color="primary" type="submit">Buscar</button>
       </div>
-      <!-- <button
+      <button
         mat-button
         mat-raised-button
         color="accent"
@@ -66,7 +144,7 @@
         routerLink="/admin/consult/report"
       >
         Ver reporte
-      </button> -->
+      </button> 
   
       <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="usuario">
@@ -90,77 +168,4 @@
     </form>
   </mat-card>
 </div>
-
-<!--  Nuevo Pedido-->
-<div>
-  <mat-card>
-    <h2 class="alinear">Registro de Pedido</h2>
-  
-    <div class="consult-container">
-      <mat-form-field>
-        <mat-label>Mayorista</mat-label>
-        <mat-select placeholder="Select Mayorista" [(ngModel)]="idMayoristaSelected">
-          <mat-option *ngFor="let p of mayorista" [value]="p.id">
-            {{ p.name }} {{ p.lastname }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Quantity" [(ngModel)]="quantity" />
-      </mat-form-field>  
-  
-      <mat-expansion-panel *ngFor="let det of details; let i = index">
-        <mat-expansion-panel-header>
-          <mat-panel-title> {{ i + 1 }} {{ det.quantity }} </mat-panel-title>
-          <mat-panel-description> Cantidad </mat-panel-description>
-        </mat-expansion-panel-header>
-  
-        <mat-form-field>
-          <mat-label>Producto</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let pr of producto" [value]="pr.id" style="text-align: center;">
-              {{ pr.name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <!-- <mat-form-field>
-          <textarea
-            matInput
-            placeholder="Treatment"
-            value="{{ det.treatment }}"
-          ></textarea>
-        </mat-form-field> -->
-  
-        <button mat-raised-button color="warn" (click)="removeDetail(i)">
-          Eliminar
-        </button>
-      </mat-expansion-panel>
-  
-      <button mat-raised-button color="primary" (click)="addDetail()">
-        Agregar detalle
-      </button>
-  
-      <button
-        mat-raised-button
-        color="primary"
-        type="button"
-        style="margin-left: 10 px"
-        (click)="savePedido()"
-      >
-        Aceptar
-      </button>
-      <button
-        mat-raised-button
-        color="warn"
-        type="button"
-        routerLink="/admin/consult"
-      >
-        Cancelar
-      </button>
-    </div>
-  </mat-card>
-</div>
-
-
+ -->

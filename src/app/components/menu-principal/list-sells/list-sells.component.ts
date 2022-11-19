@@ -1,5 +1,5 @@
+import { User } from './../../../models/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Chart, registerables } from 'chart.js';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Pedido } from 'src/app/models/pedido';
@@ -9,10 +9,10 @@ import * as moment from 'moment';
 import { MatTabGroup } from '@angular/material/tabs';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/models/user';
 import { PedidoDetail } from 'src/app/models/pedidoDetail';
 import { Product } from 'src/app/models/product';
 import { SessionUser } from 'src/app/models/session-user';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-list-sells',
@@ -23,10 +23,12 @@ export class ListSellsComponent implements OnInit {
   displayedColumns = ['usuario', 'date'];
   dataSource: MatTableDataSource<Pedido>;
 
-  mayorista: SessionUser[];
+  mayorista: User[];
 
-  producto: Product[] = [];
+  producto: Product[];
+
   idMayoristaSelected: number;
+  idProductoSelected: number;
 
   details: PedidoDetail[]=[];
   quantity: string;
@@ -36,14 +38,13 @@ export class ListSellsComponent implements OnInit {
   form: FormGroup;
   @ViewChild('tab') tabGroup: MatTabGroup;
 
-  chart:any; 
 
   constructor(
     private pedidoService: PedidoService,
     private userService: UserService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private productoService: ProductService
     ) {
-    Chart.register(...registerables);
   }
 
   ngOnInit(): void {
@@ -53,8 +54,8 @@ export class ListSellsComponent implements OnInit {
       startDate: new FormControl(),
       endDate: new FormControl(),
     });
-    this.draw();
     this.getMayoristas();
+    this.getProductos();
   }
 
   getMayoristas() {
@@ -63,16 +64,35 @@ export class ListSellsComponent implements OnInit {
         this.mayorista = data;
       },
       (error: any) => {
-        console.log('error al consultar pacientes');
+        console.log('error al consultar mayoristas');
       }
     );
   }
 
+  getProductos() {
+    this.productoService.getProducts().subscribe(
+      (data: any) => {
+        this.producto = data;
+      },
+      (error: any) => {
+        console.log('error al consultar productos');
+      }
+    );
+  }
+
+
   addDetail() {
+    let producto = new Product();
+    producto.id = this.idProductoSelected;
+
+    console.log('producto:', producto.id);
+
     let det = new PedidoDetail();
     det.quantity = this.quantity;
-
+    det.producto = producto;
+    
     this.details.push(det);
+    console.log('detalle:', det);
   }
 
   removeDetail(index: number) {
@@ -80,17 +100,20 @@ export class ListSellsComponent implements OnInit {
   }
 
   savePedido() {
-    let mayorista = new SessionUser();
+    let mayorista = new User();
     mayorista.id = this.idMayoristaSelected;
 
     console.log('mayorista:', mayorista.id);
 
     let pedido = new Pedido();
     pedido.mayorista = mayorista;
-    pedido.producto = this.producto;
-    pedido.details = this.details;
+    pedido.detallePedidos = this.details;
 
     console.log(this.details);
+
+    console.log('pedido:',pedido);
+
+
 
     pedido.date = moment(this.dateSelected).format(
       'YYYY-MM-DDTHH:mm:ss'
@@ -107,80 +130,10 @@ export class ListSellsComponent implements OnInit {
 
   cleanControls() {
     this.idMayoristaSelected = 0;
+    this.idProductoSelected = 0;
     this.dateSelected = new Date();
+    this.quantity = ' ';
     this.details = [];
   }
   
-
-
-
-
-
-
-  search() {
-    if (this.tabGroup.selectedIndex == 0) {
-      let username = this.form.value['username'];
-      let fullname = this.form.value['fullname'];
-
-      this.pedidoService
-        .searchByOthers(username, fullname)
-        .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
-    } else {
-      let date1 = this.form.value['startDate'];
-      let date2 = this.form.value['endDate'];
-
-      date1 = moment(date1).format('YYYY-MM-DDTHH:mm:ss');
-      date2 = moment(date2).format('YYYY-MM-DDTHH:mm:ss');
-
-      console.log(date1);
-      console.log(date2);
-
-      this.pedidoService
-        .searchByDates(date1, date2)
-        .subscribe((data) => (this.dataSource = new MatTableDataSource(data)));
-    }
-  }
-
-  draw() {
-    this.pedidoService.callProcedureOrFunction().subscribe((data) => {
-      let dates = data.map((x) => x.consultdate);
-      let quantities = data.map((x) => x.quantity);
-
-      this.chart = new Chart('canvas-bar', {
-        type: 'bar',
-        data: {
-          labels: dates,
-          datasets: [
-            {
-              label: 'Quantity',
-              data: quantities,
-              borderColor: [
-                '#C0392B',
-                '#8E44AD',
-                '#2980B9',
-                '#16A085',
-                '#2ECC71',
-                '#F39C12',
-                '#D35400',
-                '#95A5A6',
-                '#34495E',
-              ],
-
-              backgroundColor: [
-                '#C0392B',
-                '#8E44AD',
-                '#2980B9',
-                '#16A085',
-                '#2ECC71',
-                '#F39C12',
-                '#D35400',
-                '#95A5A6',
-                '#34495E',
-              ],
-            },
-          ],
-        },
-      });
-    });
-  }
 }

@@ -15,11 +15,6 @@ export const navbarData=[
         label:'Categorias'
     },
     {
-        routeLink:'perfil',
-        icon:'person',
-        label:'Perfil'
-    },
-    {
         routeLink:'/',
         icon:'logout',
         label:'Salir'
