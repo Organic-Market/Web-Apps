@@ -54,15 +54,7 @@
             <mat-panel-title> Detalle {{ i + 1 }}  </mat-panel-title>
             <mat-panel-description> {{ det.quantity }}</mat-panel-description>
           </mat-expansion-panel-header>
-    
-          <!-- <mat-form-field>
-            <textarea
-              matInput
-              placeholder="Treatment"
-              value="{{ det.treatment }}"
-            ></textarea>
-          </mat-form-field> -->
-    
+        
           <button mat-raised-button color="warn" (click)="removeDetail(i)">
             Eliminar
           </button>
@@ -71,101 +63,3 @@
     </div>
   </mat-card>
 </div>
-
-
-
-
-<!-- 
-<div class="list-pedidos">
-  <mat-card>
-    <h2 class="titulo">Listado de Pedidos</h2>
-    <form [formGroup]="form" (submit)="search()" style="padding-left: 20px;">
-      <mat-tab-group #tab>
-        <mat-tab label="Buscar por usuario">
-          <div>
-            <mat-form-field style="padding-top: 10px;">
-              <input matInput placeholder="Username" formControlName="username" />
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="Ingrese nombre "
-                formControlName="fullname"
-              />
-            </mat-form-field>
-          </div>
-        </mat-tab>
-        <mat-tab label="Buscar por fechas">
-          <mat-card-header>
-            <div style="padding-top: 2%; padding-bottom: 1%;">
-              <mat-form-field appearance="fill">
-                <mat-label>Seleccione un rango de fechas:</mat-label>
-                <mat-date-range-input [rangePicker]="picker" [max]="maxEnd">
-                  <input
-                    matStartDate
-                    placeholder="Fecha inicio"
-                    formControlName="startDate"
-                    />
-                    <input
-                    matEndDate
-                    placeholder="Fecha fin"
-                    formControlName="endDate"
-                    />
-                  </mat-date-range-input>
-                  <mat-datepicker-toggle
-                  matSuffix
-                  [for]="picker"
-                  ></mat-datepicker-toggle>
-                  <mat-date-range-picker #picker></mat-date-range-picker>
-                </mat-form-field>
-              </div>
-            </mat-card-header>
-          </mat-tab>
-  
-        </mat-tab-group>
-  
-      <div>
-        <button mat-raised-button color="primary" type="submit">Buscar</button>
-      </div>
-      <button
-        mat-button
-        mat-raised-button
-        color="accent"
-        routerLink="/admin/consult/new"
-      >
-        Nueva consulta
-      </button>
-      <button
-        mat-button
-        mat-raised-button
-        color="accent"
-        routerLink="/admin/consult/report"
-      >
-        Ver reporte
-      </button> 
-  
-      <mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="usuario">
-          <mat-header-cell *matHeaderCellDef> Usuario </mat-header-cell>
-          <mat-cell *matCellDef="let row">
-            {{ row.user.firstName | uppercase }}
-            {{ row.user.lastName | lowercase }}</mat-cell
-          >
-        </ng-container>
-  
-        <ng-container matColumnDef="date">
-          <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
-          <mat-cell *matCellDef="let row">
-            {{ row.consultDate | date: "dd-MM-yyyy" }}</mat-cell
-          >
-        </ng-container>
-  
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-      </mat-table>
-    </form>
-  </mat-card>
-</div>
- -->

@@ -96,13 +96,6 @@ export class ListProductComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  /* getProducts() {
-    this.productService.getProducts().subscribe((data: Product[]) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-    });
-  }  */
-
   deleteProduct(id: number) {
     this.productService.deleteProduct(id).subscribe(() => {
       this.dataSource.data = this.dataSource.data.filter((e: Product) => {
@@ -141,12 +134,5 @@ export class ListProductComponent implements OnInit {
     );
   }
 
-  // edit(
-  //   id: number,
-  //   name: string,
-  //   unit_price: number,
-  //   stock: number,
-  //   category: any
-  // ) {}
 
 }
