@@ -47,14 +47,12 @@ const routes: Routes = [
       { path: 'dashboard', component:  DashboardComponent},
       { path: 'productos', component:  ListProductComponent},
       { path: 'categorias', component:  ListCategoryComponent},
-      { path: 'perfil', component:  EditPerfilComponent},
     ]
   },
   { path: 'panel-m', component:  PanelMComponent,
     children:[
       { path: '', redirectTo:'dashboard-m', pathMatch: 'full' },
       { path: 'dashboard-m', component:  DashboardMComponent},
-      { path: 'perfil', component:  EditPerfilComponent},
       { path: 'pedidos', component:  ListSellsComponent}
     ]
   },

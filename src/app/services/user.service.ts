@@ -51,14 +51,6 @@ export class UserService {
     return currentUsername;
   }
 
-/*   getUserAgricultorByUsername(username: string) {
-    return this.http.get<User>(`${this.basePath}/agricultor/${username}`)
-  }
-
-  getUserMayoristaByUsername(username: string) {
-    return this.http.get<User>(`${this.basePath}/mayorista/${username}`)
-  } */
-
   setActualIde(id: any): void {
     this.idActualUser = id;
   }

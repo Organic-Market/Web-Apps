@@ -11,17 +11,6 @@ export class SellService {
 
   constructor(private http: HttpClient) { }
 
-  getSell() {
-    return this.http.get<Sell[]>(this.basePath);
-  }
-
-  getSellId(id: any) {
-    return this.http.get<Sell>(`${this.basePath}/${id}`);
-  }
-
-  addSell(sell: Sell) {
-    return this.http.post<Sell>(this.basePath, sell);
-  }
 
   
 }

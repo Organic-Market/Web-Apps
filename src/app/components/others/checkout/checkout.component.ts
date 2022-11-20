@@ -46,29 +46,6 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
-  saveVenta(product: any, total: any, quantity: any): void {
-    const sell: Sell = {
-      id: 0,
-      name: this.myForm.get('names')!.value,
-      lastname: this.myForm.get('lastnames')!.value,
-      product: product,
-      total: total,
-      email: this.myForm.get('email')!.value,
-      quantity: quantity,
-
-    };
-    this.sellService.addSell(sell).subscribe({
-      next: (data) => {
-        this.snackBar.open('Pago realizado', '', {
-          duration: 3000,
-        });
-        this.router.navigate(['/shop']);
-
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
+  
 
 }
